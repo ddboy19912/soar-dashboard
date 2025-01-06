@@ -1,5 +1,5 @@
 function App() {
-  return <div className="bg-red-400">SOAR</div>
+  return <div>SOAR</div>
 }
 
 export default App
