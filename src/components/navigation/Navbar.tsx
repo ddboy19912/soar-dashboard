@@ -1,17 +1,19 @@
 import { DummyImage } from "@/assets"
-import { useState } from "react"
 import CustomInput from "../common/CustomInput"
 import Icon from "../Icon"
 import Hamburger from "./Hamburger"
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+interface NavbarProps {
+  isSidebarOpen: boolean
+  onMenuClick: () => void
+}
 
+const Navbar = ({ isSidebarOpen, onMenuClick }: NavbarProps) => {
   return (
     <div className="bg-white border-b border-primary-border px-[25px] pt-[25px] pb-5 xl:py-5 xl:px-10 flex flex-col xl:flex-row">
       <div className="flex items-center justify-between w-full">
         <div className="chromebook:hidden">
-          <Hamburger isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+          <Hamburger isOpen={isSidebarOpen} onClick={onMenuClick} />
         </div>
         <h1 className="text-accent-blue">Overview</h1>
         <div className="flex items-center gap-[35px]">
