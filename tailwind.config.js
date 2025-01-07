@@ -79,6 +79,8 @@ export default {
         "soft-blue": "#718EBF",
         "placeholder-text": "#8BA3CB",
         "hover-blue": "#396AFF",
+        "grey-text": "#B1B1B1",
+        "active-link": "#232323",
       },
     },
   },

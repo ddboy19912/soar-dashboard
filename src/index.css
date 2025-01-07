@@ -72,8 +72,27 @@ h1 {
   line-height: 1.2;
 }
 
+h3 {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
 @media (min-width: 768px) {
   h1 {
     font-size: 28px;
   }
+
+  h3 {
+    font-size: 18px;
+  }
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
