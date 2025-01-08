@@ -2,6 +2,7 @@ import Navbar from "@/components/navigation/Navbar"
 import Sidebar from "@/components/navigation/Sidebar"
 import { useCallback, useState } from "react"
 import { Outlet } from "react-router-dom"
+import { Toaster } from "../ui/toaster"
 
 const RootLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -17,14 +18,15 @@ const RootLayout = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex">
       <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
-      <div className="flex-1 ml-0 chromebook:ml-[250px]">
+      <div className="flex-1 ml-0 chromebook:ml-[250px] bg-input-background">
         <Navbar isSidebarOpen={isSidebarOpen} onMenuClick={toggleSidebar} />
-        <main className="pt-16">
-          <div className="container mx-auto px-4 py-8">
+        <main>
+          <div className="container mx-auto px-10 py-6">
             <Outlet />
           </div>
         </main>
       </div>
+      <Toaster />
     </div>
   )
 }

@@ -23,6 +23,12 @@ export default {
       },
     },
     extend: {
+      backgroundImage: {
+        "card-gradient":
+          "linear-gradient(107.38deg, #5B5A6F 2.61%, #000000 101.2%)",
+        "card-bottom-gradient":
+          "linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%)",
+      },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
         lato: ["Lato", "sans-serif"],
@@ -53,7 +59,7 @@ export default {
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          foreground: "#718EBF",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
@@ -81,6 +87,26 @@ export default {
         "hover-blue": "#396AFF",
         "grey-text": "#B1B1B1",
         "active-link": "#232323",
+        "card-border": "#DFEAF2",
+        "primary-yellow": "#FFF5D9",
+        "primary-green": "#DCFAF8",
+        "paypal-blue": "#E7EDFF",
+        "negative-red": "#FF4B4A",
+        "positive-green": "#41D4A8",
+      },
+      keyframes: {
+        shimmer: {
+          "100%": { transform: "translateX(100%)" },
+        },
+        shake: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "25%": { transform: "translateX(5px)" },
+          "75%": { transform: "translateX(-5px)" },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 1.5s infinite",
+        shake: "shake 0.2s ease-in-out 0s 2",
       },
     },
   },
