@@ -1,285 +1,311 @@
 {
-    "user": {
-        "id": "usr_123",
-        "name": "Jane Doe",
-        "username": "jane_doe",
-        "email": "jane.doe@example.com",
-        "dateOfBirth": "1990-05-15",
-        "profilePicture": "https://api.dicebear.com/7.x/avataaars/svg?seed=Jane",
-        "phoneNumber": "+1234567890",
-        "presentAddress": "123 Main St, Lagos, Nigeria",
-        "permanentAddress": "345 Main St, Lagos, Nigeria",
-        "city": "Lagos",
-        "country": "Nigeria",
-        "postalCode": "123456"
+  "users": [
+    {
+      "id": "usr_123",
+      "name": "Jane Doe",
+      "username": "jane_doe",
+      "email": "jane.doe@example.com",
+      "dob": "2025-01-02T23:00:00.000Z",
+      "profilePicture": "https://api.dicebear.com/7.x/avataaars/svg?seed=Jane",
+      "phoneNumber": "+1234567890",
+      "presentAddress": "123 Main St, Lagos, Nigeria",
+      "permanentAddress": "345 Main St, Lagos, Nigeria",
+      "city": "Abuja",
+      "country": "Nigeria",
+      "postalCode": "12345",
+      "password": "$2a$10$YTofZ4Kb4mCgW4B7TexFjOlN/PpDRqqkQPFynSWvHL61zs61..RZW"
+    }
+  ],
+  "cards": [
+    {
+      "id": "card_1",
+      "cardNumber": "1234567890123456",
+      "cardHolder": "Jane Doe",
+      "expiryDate": "12/25",
+      "cvv": "***",
+      "type": "mastercard",
+      "cardColor": "dark",
+      "balance": 5420.75
     },
-    "cards": [
-        {
-            "id": "card_1",
-            "cardNumber": "1234567890123456",
-            "cardHolder": "Jane Doe",
-            "expiryDate": "12/25",
-            "cvv": "***",
-            "type": "mastercard",
-            "cardColor": "dark",
-            "balance": 5420.75
-        },
-        {
-            "id": "card_2",
-            "cardNumber": "0987654321234567",
-            "cardHolder": "Jane Doe",
-            "expiryDate": "09/24",
-            "cvv": "***",
-            "type": "mastercard",
-            "cardColor": "light",
-            "balance": 2150.30
-        }
-    ],
-    "transactions": [
-        {
-            "id": "trx_1",
-            "type": "debit",
-            "amount": 85.99,
-            "description": "Netflix Subscription",
-            "category": "entertainment",
-            "date": "2024-02-15T10:30:00Z",
-            "merchant": "Netflix",
-            "status": "completed",
-            "transactionName": "Netflix Entertainment",
-            "method": "card"
-        },
-        {
-            "id": "trx_2",
-            "type": "credit",
-            "amount": 1200.00,
-            "description": "Salary Deposit",
-            "category": "others",
-            "date": "2024-02-14T09:15:00Z",
-            "merchant": "Employer Inc",
-            "status": "completed",
-            "transactionName": "Deposit from Card",
-            "method": "transfer"
-        },
-        {
-            "id": "trx_3",
-            "type": "credit",
-            "amount": 250.00,
-            "description": "PayPal Payment",
-            "category": "others",
-            "date": "2024-02-13T15:45:00Z",
-            "merchant": "PayPal",
-            "status": "completed",
-            "transactionName": "PayPal Deposit",
-            "method": "paypal"
-        },
-        {
-            "id": "trx_4",
-            "type": "debit",
-            "amount": 75.50,
-            "description": "Amazon Purchase",
-            "category": "shopping",
-            "date": "2024-02-13T14:20:00Z",
-            "merchant": "Amazon",
-            "status": "completed",
-            "transactionName": "Amazon Shopping",
-            "method": "card"
-        },
-        {
-            "id": "trx_5",
-            "type": "debit",
-            "amount": 500.00,
-            "description": "Transfer to John",
-            "category": "transfer",
-            "date": "2024-02-12T11:30:00Z",
-            "merchant": "Bank Transfer",
-            "status": "completed",
-            "transactionName": "Jemi Wilson",
-            "method": "transfer"
-        },
-        {
-            "id": "trx_6",
-            "type": "debit",
-            "amount": 45.99,
-            "description": "Card Payment",
-            "category": "food",
-            "date": "2024-02-12T09:15:00Z",
-            "merchant": "Starbucks",
-            "status": "completed",
-            "transactionName": "Card Transaction",
-            "method": "card"
-        }
-    ],
-    "expenseCategories": [
-        {
-            "category": "entertainment",
-            "percentage": 25,
-            "amount": 300
-        },
-        {
-            "category": "investment",
-            "percentage": 40,
-            "amount": 200
-        },
-        {
-            "category": "bills",
-            "percentage": 25,
-            "amount": 200
-        },
-        {
-            "category": "others",
-            "percentage": 10,
-            "amount": 350
-        }
-    ],
-    "dailyExpenses": [
-        {
-            "date": "2024-02-17",
-            "withdrawals": 450,
-            "deposits": 230
-        },
-        {
-            "date": "2024-02-16",
-            "withdrawals": 340,
-            "deposits": 120
-        },
-        {
-            "date": "2024-02-15",
-            "withdrawals": 320,
-            "deposits": 260
-        },
-        {
-            "date": "2024-02-14",
-            "withdrawals": 460,
-            "deposits": 360
-        },
-        {
-            "date": "2024-02-13",
-            "withdrawals": 150,
-            "deposits": 230
-        },
-        {
-            "date": "2024-02-12",
-            "withdrawals": 380,
-            "deposits": 240
-        },
-        {
-            "date": "2024-02-11",
-            "withdrawals": 380,
-            "deposits": 330
-        }
-    ],
-    "contacts": [
-        {
-            "id": "contact_1",
-            "name": "Jane Smith",
-            "profilePicture": "https://api.dicebear.com/7.x/avataaars/svg?seed=Jane",
-            "accountNumber": "1234567890",
-            "bank": "Chase",
-            "recentTransaction": "Sent $50",
-            "isFavorite": true,
-            "occupation": "Designer"
-        },
-        {
-            "id": "contact_2",
-            "name": "Mike Johnson",
-            "profilePicture": "https://api.dicebear.com/7.x/avataaars/svg?seed=Mike",
-            "accountNumber": "0987654321",
-            "bank": "Bank of America",
-            "recentTransaction": "Received $30",
-            "isFavorite": false,
-            "occupation": "Developer"
-        },
-        {
-            "id": "contact_3",
-            "name": "Sarah Wilson",
-            "profilePicture": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
-            "accountNumber": "5678901234",
-            "bank": "Wells Fargo",
-            "recentTransaction": "Sent $75",
-            "isFavorite": true,
-            "occupation": "Product Manager"
-        },
-        {
-            "id": "contact_4",
-            "name": "Alex Chen",
-            "profilePicture": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
-            "accountNumber": "4321098765",
-            "bank": "Citibank",
-            "recentTransaction": "Received $120",
-            "isFavorite": false,
-            "occupation": "Data Scientist"
-        },
-        {
-            "id": "contact_5",
-            "name": "Emma Davis",
-            "profilePicture": "https://api.dicebear.com/7.x/avataaars/svg?seed=Emma",
-            "accountNumber": "9876543210",
-            "bank": "Capital One",
-            "recentTransaction": "Sent $25",
-            "isFavorite": true,
-            "occupation": "Marketing Manager"
-        }
-    ],
-    "monthlyBalances": [
-        {
-            "month": "Jan",
-            "balance": 5000,
-            "growth": 2.5
-        },
-        {
-            "month": "Feb",
-            "balance": 8500,
-            "growth": 4.0
-        },
-        {
-            "month": "Mar",
-            "balance": 4800,
-            "growth": 3.8
-        },
-        {
-            "month": "Apr",
-            "balance": 9200,
-            "growth": 3.7
-        },
-        {
-            "month": "May",
-            "balance": 4500,
-            "growth": 3.5
-        },
-        {
-            "month": "Jun",
-            "balance": 9800,
-            "growth": 3.4
-        },
-        {
-            "month": "Jul",
-            "balance": 4200,
-            "growth": 3.3
-        },
-        {
-            "month": "Aug",
-            "balance": 10500,
-            "growth": 3.2
-        },
-        {
-            "month": "Sep",
-            "balance": 3800,
-            "growth": 3.1
-        },
-        {
-            "month": "Oct",
-            "balance": 11200,
-            "growth": 3.0
-        },
-        {
-            "month": "Nov",
-            "balance": 3500,
-            "growth": 2.9
-        },
-        {
-            "month": "Dec",
-            "balance": 12000,
-            "growth": 2.8
-        }
-    ]
+    {
+      "id": "card_2",
+      "cardNumber": "0987654321234567",
+      "cardHolder": "Jane Doe",
+      "expiryDate": "09/24",
+      "cvv": "***",
+      "type": "mastercard",
+      "cardColor": "light",
+      "balance": 2150.3
+    }
+  ],
+  "transactions": [
+    {
+      "id": "trx_1",
+      "type": "debit",
+      "amount": 85.99,
+      "description": "Netflix Subscription",
+      "category": "entertainment",
+      "date": "2024-02-15T10:30:00Z",
+      "merchant": "Netflix",
+      "status": "completed",
+      "transactionName": "Netflix Entertainment",
+      "method": "card"
+    },
+    {
+      "id": "trx_2",
+      "type": "credit",
+      "amount": 1200,
+      "description": "Salary Deposit",
+      "category": "others",
+      "date": "2024-02-14T09:15:00Z",
+      "merchant": "Employer Inc",
+      "status": "completed",
+      "transactionName": "Deposit from Card",
+      "method": "transfer"
+    },
+    {
+      "id": "trx_3",
+      "type": "credit",
+      "amount": 250,
+      "description": "PayPal Payment",
+      "category": "others",
+      "date": "2024-02-13T15:45:00Z",
+      "merchant": "PayPal",
+      "status": "completed",
+      "transactionName": "PayPal Deposit",
+      "method": "paypal"
+    },
+    {
+      "id": "trx_4",
+      "type": "debit",
+      "amount": 75.5,
+      "description": "Amazon Purchase",
+      "category": "shopping",
+      "date": "2024-02-13T14:20:00Z",
+      "merchant": "Amazon",
+      "status": "completed",
+      "transactionName": "Amazon Shopping",
+      "method": "card"
+    },
+    {
+      "id": "trx_5",
+      "type": "debit",
+      "amount": 500,
+      "description": "Transfer to John",
+      "category": "transfer",
+      "date": "2024-02-12T11:30:00Z",
+      "merchant": "Bank Transfer",
+      "status": "completed",
+      "transactionName": "Jemi Wilson",
+      "method": "transfer"
+    },
+    {
+      "id": "trx_6",
+      "type": "debit",
+      "amount": 45.99,
+      "description": "Card Payment",
+      "category": "food",
+      "date": "2024-02-12T09:15:00Z",
+      "merchant": "Starbucks",
+      "status": "completed",
+      "transactionName": "Card Transaction",
+      "method": "card"
+    }
+  ],
+  "expenseCategories": [
+    {
+      "category": "entertainment",
+      "percentage": 25,
+      "amount": 300,
+      "id": "6a35"
+    },
+    {
+      "category": "investment",
+      "percentage": 40,
+      "amount": 200,
+      "id": "324c"
+    },
+    {
+      "category": "bills",
+      "percentage": 25,
+      "amount": 200,
+      "id": "8734"
+    },
+    {
+      "category": "others",
+      "percentage": 10,
+      "amount": 350,
+      "id": "7d73"
+    }
+  ],
+  "dailyExpenses": [
+    {
+      "date": "2024-02-17",
+      "withdrawals": 450,
+      "deposits": 230,
+      "id": "866a"
+    },
+    {
+      "date": "2024-02-16",
+      "withdrawals": 340,
+      "deposits": 120,
+      "id": "8c07"
+    },
+    {
+      "date": "2024-02-15",
+      "withdrawals": 320,
+      "deposits": 260,
+      "id": "4d63"
+    },
+    {
+      "date": "2024-02-14",
+      "withdrawals": 460,
+      "deposits": 360,
+      "id": "bff6"
+    },
+    {
+      "date": "2024-02-13",
+      "withdrawals": 150,
+      "deposits": 230,
+      "id": "1853"
+    },
+    {
+      "date": "2024-02-12",
+      "withdrawals": 380,
+      "deposits": 240,
+      "id": "31b3"
+    },
+    {
+      "date": "2024-02-11",
+      "withdrawals": 380,
+      "deposits": 330,
+      "id": "bf92"
+    }
+  ],
+  "contacts": [
+    {
+      "id": "contact_1",
+      "name": "Jane Smith",
+      "profilePicture": "https://api.dicebear.com/7.x/avataaars/svg?seed=Jane",
+      "accountNumber": "1234567890",
+      "bank": "Chase",
+      "recentTransaction": "Sent $50",
+      "isFavorite": true,
+      "occupation": "Designer"
+    },
+    {
+      "id": "contact_2",
+      "name": "Mike Johnson",
+      "profilePicture": "https://api.dicebear.com/7.x/avataaars/svg?seed=Mike",
+      "accountNumber": "0987654321",
+      "bank": "Bank of America",
+      "recentTransaction": "Received $30",
+      "isFavorite": false,
+      "occupation": "Developer"
+    },
+    {
+      "id": "contact_3",
+      "name": "Sarah Wilson",
+      "profilePicture": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah",
+      "accountNumber": "5678901234",
+      "bank": "Wells Fargo",
+      "recentTransaction": "Sent $75",
+      "isFavorite": true,
+      "occupation": "Product Manager"
+    },
+    {
+      "id": "contact_4",
+      "name": "Alex Chen",
+      "profilePicture": "https://api.dicebear.com/7.x/avataaars/svg?seed=Alex",
+      "accountNumber": "4321098765",
+      "bank": "Citibank",
+      "recentTransaction": "Received $120",
+      "isFavorite": false,
+      "occupation": "Data Scientist"
+    },
+    {
+      "id": "contact_5",
+      "name": "Emma Davis",
+      "profilePicture": "https://api.dicebear.com/7.x/avataaars/svg?seed=Emma",
+      "accountNumber": "9876543210",
+      "bank": "Capital One",
+      "recentTransaction": "Sent $25",
+      "isFavorite": true,
+      "occupation": "Marketing Manager"
+    }
+  ],
+  "monthlyBalances": [
+    {
+      "month": "Jan",
+      "balance": 5000,
+      "growth": 2.5,
+      "id": "0363"
+    },
+    {
+      "month": "Feb",
+      "balance": 8500,
+      "growth": 4,
+      "id": "6747"
+    },
+    {
+      "month": "Mar",
+      "balance": 4800,
+      "growth": 3.8,
+      "id": "6c2a"
+    },
+    {
+      "month": "Apr",
+      "balance": 9200,
+      "growth": 3.7,
+      "id": "eb23"
+    },
+    {
+      "month": "May",
+      "balance": 4500,
+      "growth": 3.5,
+      "id": "2d2f"
+    },
+    {
+      "month": "Jun",
+      "balance": 9800,
+      "growth": 3.4,
+      "id": "a8ce"
+    },
+    {
+      "month": "Jul",
+      "balance": 4200,
+      "growth": 3.3,
+      "id": "a0f3"
+    },
+    {
+      "month": "Aug",
+      "balance": 10500,
+      "growth": 3.2,
+      "id": "3ddf"
+    },
+    {
+      "month": "Sep",
+      "balance": 3800,
+      "growth": 3.1,
+      "id": "cc47"
+    },
+    {
+      "month": "Oct",
+      "balance": 11200,
+      "growth": 3,
+      "id": "cb61"
+    },
+    {
+      "month": "Nov",
+      "balance": 3500,
+      "growth": 2.9,
+      "id": "691c"
+    },
+    {
+      "month": "Dec",
+      "balance": 12000,
+      "growth": 2.8,
+      "id": "8fb9"
+    }
+  ]
 }

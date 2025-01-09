@@ -7,8 +7,9 @@ const api = axios.create({
 
 export const apiService = {
   // User APIs
-  getUserProfile: () => api.get("/user"),
-  updateUserProfile: (data: Partial<User>) => api.patch("/user", data),
+  getUserProfile: (id: string) => api.get(`/users/${id}`),
+  updateUserProfile: (id: string, data: Partial<User>) =>
+    api.patch(`/users/${id}`, data),
 
   // Card APIs
   getUserCards: () => api.get("/cards"),

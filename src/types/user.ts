@@ -7,9 +7,10 @@ export interface User {
   permanentAddress: string
   phoneNumber: string
   city: string
+  password: string
   country: string
   postalCode: string
-  dateOfBirth: string
-  profilePicture: string
+  dob: string
+  profilePicture?: string
   balance: number
 }
