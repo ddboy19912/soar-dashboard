@@ -12,6 +12,7 @@ import {
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
@@ -134,7 +135,7 @@ const QuickTransfer = () => {
                 </div>
                 <p
                   className={`
-                    text-base leading-[1.2] font-normal mt-[15px] text-active-link w-max transition-colors duration-300
+                    text-base leading-[1.2] font-normal mt-[15px] text-active-link w-max transition-colors duration-300 max-w-[106px] truncate
                     ${isActiveSlide(index) ? "font-bold" : "font-normal"}
                   `}
                 >
@@ -142,7 +143,7 @@ const QuickTransfer = () => {
                 </p>
                 <p
                   className={`
-                    text-[15px] leading-[1.2] font-normal mt-[5px] text-center transition-colors duration-300 text-soft-blue
+                    text-[15px] leading-[1.2] font-normal mt-[5px] text-center transition-colors duration-300 text-soft-blue line-clamp-2
                      ${isActiveSlide(index) ? "font-bold" : "font-normal"}
                   `}
                 >
@@ -211,6 +212,9 @@ const QuickTransfer = () => {
             <DialogTitle className="text-center text-lg font-semibold">
               Transfer Successful! 🎉
             </DialogTitle>
+            <DialogDescription className="sr-only">
+              Your money has been transferred successfully
+            </DialogDescription>
           </DialogHeader>
           <div className="text-center py-4">
             <p className="text-soft-blue mb-2">You have sent</p>

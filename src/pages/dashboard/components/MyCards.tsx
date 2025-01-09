@@ -3,6 +3,7 @@ import CreditCard from "@/components/common/CreditCard"
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
@@ -52,6 +53,9 @@ const MyCards = () => {
         <DialogContent className="max-w-[800px]">
           <DialogHeader>
             <DialogTitle>My Cards</DialogTitle>
+            <DialogDescription className="sr-only">
+              List of your cards
+            </DialogDescription>
           </DialogHeader>
           <div className="grid max-h-[80vh] overflow-y-auto">
             {cards?.map((card) => (
