@@ -1,5 +1,7 @@
 import { useUserData } from "@/hooks/useUserData"
-import { Link } from "react-router-dom"
+import { useUserStore } from "@/store/useUserStore"
+import { useEffect, useState } from "react"
+import { Link, useLocation } from "react-router-dom"
 import CustomInput from "../common/CustomInput"
 import ProfileImage from "../common/ProfileImage"
 import Icon from "../Icon"
@@ -11,15 +13,41 @@ interface NavbarProps {
 }
 
 const Navbar = ({ isSidebarOpen, onMenuClick }: NavbarProps) => {
-  const { data: userData, isLoading } = useUserData()
+  const { getUserId } = useUserStore()
+  const userId = getUserId()
+
+  const { data: userData, isLoading } = useUserData(userId)
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1200)
+
+  const pathname = useLocation().pathname
+
+  const getPageName = () => {
+    if (pathname === "/") {
+      return "Overview"
+    }
+
+    const pageName = pathname.split("/").pop() || ""
+    return pageName.replace(/-/g, " ")
+  }
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1200)
+    }
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  const profileImageSize = isLargeScreen ? 60 : 35
 
   return (
-    <div className="bg-white border-b border-primary-border px-[25px] pt-[25px] pb-5 xl:py-5 xl:px-10 flex flex-col xl:flex-row">
+    <div className="fixed z-20 w-screen-minus-sidebar bg-white border-b border-primary-border px-[25px] pt-[25px] pb-5 xl:py-5 xl:px-10 flex flex-col xl:flex-row">
       <div className="flex items-center justify-between w-full">
         <div className="chromebook:hidden">
           <Hamburger isOpen={isSidebarOpen} onClick={onMenuClick} />
         </div>
-        <h1 className="text-accent-blue">Overview</h1>
+        <h1 className="text-accent-blue capitalize">{getPageName()}</h1>
         <div className="flex items-center gap-[35px]">
           <div className="hidden chromebook:flex items-center gap-[30px]">
             <CustomInput
@@ -44,12 +72,14 @@ const Navbar = ({ isSidebarOpen, onMenuClick }: NavbarProps) => {
               />
             </div>
           </div>
-          <Link to="/settings">
+          <Link to="/settings" className="group relative">
             <ProfileImage
               src={userData?.profilePicture}
               name={userData?.name}
               isLoading={isLoading}
+              size={profileImageSize}
             />
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] z-[-1] bg-soft-blue/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Link>
         </div>
       </div>

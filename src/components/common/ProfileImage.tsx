@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 interface ProfileImageProps {
   src?: string | null
@@ -6,6 +6,7 @@ interface ProfileImageProps {
   className?: string
   name?: string
   isLoading?: boolean
+  size?: number
 }
 
 const ProfileImage = ({
@@ -14,25 +15,9 @@ const ProfileImage = ({
   className = "",
   name = "",
   isLoading = false,
+  size = 60,
 }: ProfileImageProps) => {
   const [imageError, setImageError] = useState(false)
-  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1200)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 1200)
-    }
-
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-  const sizeClasses = {
-    sm: "size-[35px] text-sm",
-    lg: "size-[60px] text-xl",
-  }
-
-  const getImageSizeClass = sizeClasses[isLargeScreen ? "lg" : "sm"]
 
   const getInitials = () => {
     const names = name.split(" ")
@@ -47,12 +32,12 @@ const ProfileImage = ({
     return (
       <div
         className={`
-          ${getImageSizeClass} 
           rounded-full 
           bg-gray-200 
           animate-pulse
           ${className}
         `}
+        style={{ width: size, height: size }}
       />
     )
   }
@@ -61,7 +46,6 @@ const ProfileImage = ({
     return (
       <div
         className={`
-          ${getImageSizeClass} 
           bg-soft-blue 
           rounded-full 
           flex 
@@ -71,6 +55,7 @@ const ProfileImage = ({
           font-medium
           ${className}
         `}
+        style={{ width: size, height: size }}
       >
         {getInitials()}
       </div>
@@ -83,7 +68,8 @@ const ProfileImage = ({
       alt={alt}
       loading="lazy"
       onError={() => setImageError(true)}
-      className={`${getImageSizeClass} bg-soft-blue rounded-full object-cover cursor-pointer ${className}`}
+      className={`bg-soft-blue rounded-full object-cover cursor-pointer ${className}`}
+      style={{ width: size, height: size }}
     />
   )
 }

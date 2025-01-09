@@ -20,7 +20,7 @@ const RootLayout = () => {
       <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
       <div className="flex-1 ml-0 chromebook:ml-[250px] bg-input-background">
         <Navbar isSidebarOpen={isSidebarOpen} onMenuClick={toggleSidebar} />
-        <main>
+        <main className="pt-[101px]">
           <div className="container mx-auto px-10 py-6">
             <Outlet />
           </div>

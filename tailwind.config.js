@@ -80,6 +80,7 @@ export default {
           5: "hsl(var(--chart-5))",
         },
         "primary-border": "#E6EFF5",
+        "secondary-border": "#F4F5F7",
         "accent-blue": "#343C6A",
         "input-background": "#F5F7FA",
         "soft-blue": "#718EBF",
@@ -107,6 +108,12 @@ export default {
       animation: {
         shimmer: "shimmer 1.5s infinite",
         shake: "shake 0.2s ease-in-out 0s 2",
+      },
+      height: {
+        "screen-minus-header": "calc(100dvh - 149px)",
+      },
+      width: {
+        "screen-minus-sidebar": "calc(100dvw - 250px)",
       },
     },
   },

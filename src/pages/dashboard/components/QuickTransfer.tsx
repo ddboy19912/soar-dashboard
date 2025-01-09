@@ -129,6 +129,7 @@ const QuickTransfer = () => {
                     src={contact.profilePicture}
                     isLoading={isLoading}
                     alt={contact.name}
+                    size={70}
                   />
                 </div>
                 <p
