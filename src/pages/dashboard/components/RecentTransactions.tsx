@@ -44,7 +44,7 @@ const TransactionCard = ({ transaction }: { transaction: Transaction }) => {
           <Icon icon={icon} size={24} className="text-gray-700" />
         </div>
         <div>
-          <p className="text-base leading-[1.2] text-active-link font-medium">
+          <p className="text-base leading-[1.2] text-active-link font-medium truncate max-w-[151px]">
             {transaction.description}
           </p>
           <p className="text-[15px] leading-[1.2] text-soft-blue font-normal mt-[7px]">
@@ -54,7 +54,9 @@ const TransactionCard = ({ transaction }: { transaction: Transaction }) => {
       </div>
       <div>
         <p className={`text-base leading-[1.2] font-medium ${amountClasses}`}>
-          {formatAmount(transaction.amount, transaction.type)}
+          {formatAmount(transaction.amount, {
+            type: transaction.type,
+          })}
         </p>
       </div>
     </div>

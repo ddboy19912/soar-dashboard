@@ -66,7 +66,7 @@
     {
       "id": "trx_3",
       "type": "credit",
-      "amount": 250,
+      "amount": 2500000,
       "description": "PayPal Payment",
       "category": "others",
       "date": "2024-02-13T15:45:00Z",
