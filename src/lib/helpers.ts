@@ -1,5 +1,10 @@
 import { DailyExpense } from "@/types"
 
+interface FormatAmountOptions {
+  type: "credit" | "debit"
+  abbreviated?: boolean
+}
+
 export const formatDate = (dateString: string): string => {
   const date = new Date(dateString)
 
@@ -12,10 +17,37 @@ export const formatDate = (dateString: string): string => {
 
 export const formatAmount = (
   amount: number,
-  type: "credit" | "debit"
+  options: FormatAmountOptions
 ): string => {
+  const { type, abbreviated = true } = options
   const prefix = type === "credit" ? "+" : "-"
-  return `${prefix}$${amount.toFixed(2)}`
+
+  // Format with commas, no decimals to follow the design
+  const formatter = new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  })
+
+  // Handles large numbers with abbreviation
+  if (abbreviated && amount >= 10000) {
+    const abbreviations = [
+      { value: 1e12, symbol: "T" },
+      { value: 1e9, symbol: "B" },
+      { value: 1e6, symbol: "M" },
+      { value: 1e3, symbol: "K" },
+    ]
+
+    const item = abbreviations.find((item) => amount >= item.value)
+    if (item) {
+      const shortenedAmount = amount / item.value
+      return `${prefix}$${shortenedAmount}${item.symbol}`
+    }
+  }
+
+  const formattedAmount = formatter.format(Math.round(amount))
+  const fullAmount = `${prefix}$${formattedAmount}`
+
+  return fullAmount
 }
 
 export const formatDayName = (dateString: string): string => {
