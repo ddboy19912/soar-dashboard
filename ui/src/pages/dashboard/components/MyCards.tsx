@@ -22,7 +22,7 @@ const MyCards = () => {
 
   return (
     <>
-      <div className="chromebook:max-w-[730px]">
+      <div className="w-full chromebook:max-w-[730px]">
         <div className="flex justify-between items-center">
           <h2 className="text-accent-blue">My Cards</h2>
           <p
@@ -38,11 +38,11 @@ const MyCards = () => {
               <div key={card.id} className="shrink-0">
                 <CreditCard
                   balance={card.balance}
+                  cardColor={card.cardColor}
                   cardNumber={card.cardNumber}
+                  isLoading={isLoading}
                   holderName={card.cardHolder}
                   validThru={card.expiryDate}
-                  cardColor={card.cardColor}
-                  isLoading={isLoading}
                 />
               </div>
             ))}

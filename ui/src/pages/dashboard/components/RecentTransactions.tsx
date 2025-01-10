@@ -75,7 +75,7 @@ const RecentTransactions = () => {
         containerClass="mt-[22px] chromebook:mt-5 w-full chromebook:w-[350px] h-[235px] border overflow-y-auto hide-scrollbar"
         contentClass="px-3 py-5 md:py-5 md:px-[25px] chromebook:py-[25px]"
       >
-        <div className="space-y-3 chromebook:space-y-[10px]">
+        <div className="space-y-3 chromebook:space-y-[10px] w-full h-full">
           {transactions?.map((transaction) => (
             <TransactionCard key={transaction.id} transaction={transaction} />
           ))}
