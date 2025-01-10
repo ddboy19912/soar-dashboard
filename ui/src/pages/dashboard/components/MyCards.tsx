@@ -22,7 +22,7 @@ const MyCards = () => {
 
   return (
     <>
-      <div className="w-full chromebook:max-w-[730px]">
+      <div className="chromebook:w-full chromebook:max-w-[730px]">
         <div className="flex justify-between items-center">
           <h2 className="text-accent-blue">My Cards</h2>
           <p
@@ -32,7 +32,7 @@ const MyCards = () => {
             See All
           </p>
         </div>
-        <div className="mt-[22px] chromebook:mt-5">
+        <div className="mt-[22px] chromebook:mt-5 chromebook:w-full">
           <div className="flex gap-[20px] chromebook:gap-[30px] overflow-x-auto hide-scrollbar w-[calc(100vw-25px)] -mr-[25px] chromebook:w-auto chromebook:mr-0">
             {cards?.map((card) => (
               <div key={card.id} className="shrink-0">
