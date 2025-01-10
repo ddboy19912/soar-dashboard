@@ -82,7 +82,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
       >
         <div className="flex items-center justify-center h-[101px]">
           <NavLink to="/">
-            <img src={DashboardLogo} alt="dashboard-logo" />
+            <img loading="lazy" src={DashboardLogo} alt="dashboard-logo" />
           </NavLink>
         </div>
         <div className="px-0 pt-[15px] pb-8 relative overflow-y-auto hide-scrollbar h-[calc(100%-101px)]">
