@@ -161,7 +161,7 @@ const QuickTransfer = () => {
           onClick={handlePrev}
           aria-label="Previous contact"
           aria-controls="contacts-slider"
-          className="size-[40px] chromebook:size-[50px] border border-soft-blue/25 absolute left-[-5px] chromebook:left-[0px] top-[75px] chromebook:top-[110px] group flex items-center justify-center rounded-full bg-white shadow-[4px_4px_18px_-2px_rgba(231,228,232,0.8)] hover:bg-soft-blue duration-300 transition-all"
+          className="size-[40px] chromebook:size-[50px] border border-soft-blue/25 absolute left-0 md:left-[15px] chromebook:left-[0px] top-[75px] chromebook:top-[110px] group flex items-center justify-center rounded-full bg-white shadow-[4px_4px_18px_-2px_rgba(231,228,232,0.8)] hover:bg-soft-blue duration-300 transition-all"
         >
           <Icon
             icon="keyboard_arrow_right"
@@ -173,7 +173,7 @@ const QuickTransfer = () => {
           onClick={handleNext}
           aria-label="Next contact"
           aria-controls="contacts-slider"
-          className="size-[40px] chromebook:size-[50px] border border-soft-blue/25 absolute right-[-5px] chromebook:right-[-20px] top-[75px] chromebook:top-[110px] group flex items-center justify-center rounded-full bg-white shadow-[4px_4px_18px_-2px_rgba(231,228,232,0.8)] hover:bg-soft-blue duration-300 transition-all"
+          className="size-[40px] chromebook:size-[50px] border border-soft-blue/25 absolute right-0 md:right-[15px] chromebook:right-[-20px] top-[75px] chromebook:top-[110px] group flex items-center justify-center rounded-full bg-white shadow-[4px_4px_18px_-2px_rgba(231,228,232,0.8)] hover:bg-soft-blue duration-300 transition-all"
         >
           <Icon
             icon="keyboard_arrow_right"
