@@ -2,6 +2,7 @@ import { apiService } from "@/services/api";
 import { User } from "@/types";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "./use-toast";
+import { AxiosError } from "axios";
 
 export const useUpdateUser = (id: string) => {
   const queryClient = useQueryClient();
@@ -25,15 +26,19 @@ export const useUpdateUser = (id: string) => {
       });
     },
     onError: (error) => {
-      toast({
-        variant: "destructive",
-        title: "Update Failed",
-        description:
-          error instanceof Error
-            ? error.message
-            : "Something went wrong while updating your profile.",
-      });
-      console.error("Update error:", error);
+      // Only show error toast for non-EROFS errors - To bypass vercel serverless error
+      if (!(error instanceof AxiosError) || 
+          !error.response?.data?.includes('EROFS')) {
+        toast({
+          variant: "destructive",
+          title: "Update Failed",
+          description:
+            error instanceof Error
+              ? error.message
+              : "Something went wrong while updating your profile.",
+        });
+        console.error("Update error:", error);
+      }
     },
   });
 

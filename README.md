@@ -1,1 +1,2 @@
-# soar-dashboard
+# Frontend /ui
+# Backend /backend

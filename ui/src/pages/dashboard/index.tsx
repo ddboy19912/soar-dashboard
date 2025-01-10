@@ -8,7 +8,7 @@ import WeeklyActivity from "./components/WeeklyActivity";
 const Dashboard = () => {
   return (
     <div>
-      <div className="flex flex-col chromebook:flex-row chromebook:overflow-x-auto gap-[22px] chromebook:gap-[30px] hide-scrollbar w-[calc(100vw-290px)]">
+      <div className="flex flex-col chromebook:flex-row chromebook:overflow-x-auto gap-[22px] chromebook:gap-[30px] hide-scrollbar chromebook:w-[calc(100vw-290px)]">
         <MyCards />
         <RecentTransactions />
         <div
@@ -16,7 +16,7 @@ const Dashboard = () => {
           aria-hidden="true"
         />
       </div>
-      <div className="flex flex-col lg:flex-row chromebook:overflow-x-auto gap-[22px] chromebook:gap-[30px] mt-[22px] chromebook:mt-6 hide-scrollbar w-[calc(100vw-290px)]">
+      <div className="flex flex-col lg:flex-row chromebook:overflow-x-auto gap-[22px] chromebook:gap-[30px] mt-[22px] chromebook:mt-6 hide-scrollbar chromebook:w-[calc(100vw-290px)]">
         <WeeklyActivity />
         <ExpenseStatistics />
         <div
@@ -24,7 +24,7 @@ const Dashboard = () => {
           aria-hidden="true"
         />
       </div>
-      <div className="flex flex-col lg:flex-row chromebook:overflow-x-auto overflow-y-hidden gap-[22px] chromebook:gap-[30px] mt-[22px] chromebook:mt-6 hide-scrollbar w-[calc(100vw-290px)]">
+      <div className="flex flex-col lg:flex-row chromebook:overflow-x-auto overflow-y-hidden gap-[22px] chromebook:gap-[30px] mt-[22px] chromebook:mt-6 hide-scrollbar chromebook:w-[calc(100vw-290px)]">
         <QuickTransfer />
         <BalanceHistory />
         <div
