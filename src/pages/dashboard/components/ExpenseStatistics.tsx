@@ -94,12 +94,12 @@ const ExpenseStatistics = () => {
     <div>
       <h2 className="text-accent-blue">Expense Statistics</h2>
       <CustomCard
-        containerClass="w-[350px] h-[326px] mt-[18px] overflow-hidden"
-        contentClass="p-0"
+        containerClass="w-full chromebook:w-[350px] h-[326px] mt-3 chromebook:mt-[18px] overflow-hidden border-none chromebook:border"
+        contentClass="p-0 w-full h-full flex justify-center"
       >
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square [&_.recharts-text]:fill-background"
+          className="mx-auto [&_.recharts-text]:fill-background"
         >
           <PieChart width={270} height={270}>
             <Pie

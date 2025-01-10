@@ -1,6 +1,6 @@
 import { useUserData } from "@/hooks/useUserData"
+import { useScreenSize } from "@/store/useScreenStore"
 import { useUserStore } from "@/store/useUserStore"
-import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import CustomInput from "../common/CustomInput"
 import ProfileImage from "../common/ProfileImage"
@@ -17,7 +17,6 @@ const Navbar = ({ isSidebarOpen, onMenuClick }: NavbarProps) => {
   const userId = getUserId()
 
   const { data: userData, isLoading } = useUserData(userId)
-  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1200)
 
   const pathname = useLocation().pathname
 
@@ -30,20 +29,13 @@ const Navbar = ({ isSidebarOpen, onMenuClick }: NavbarProps) => {
     return pageName.replace(/-/g, " ")
   }
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 1200)
-    }
-
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+  const isLargeScreen = useScreenSize()
 
   const profileImageSize = isLargeScreen ? 60 : 35
 
   return (
-    <div className="fixed z-20 w-screen-minus-sidebar bg-white border-b border-primary-border px-[25px] pt-[25px] pb-5 xl:py-5 xl:px-10 flex flex-col xl:flex-row">
-      <div className="flex items-center justify-between w-full">
+    <div className="fixed z-20 w-screen chromebook:w-screen-minus-sidebar bg-white border-b border-transparent chromebook:border-primary-border px-[25px] pt-[25px] pb-5 xl:py-5 xl:px-10 flex flex-col xl:flex-row">
+      <div className="flex items-center justify-between w-full chromebook:max-w-[1110px]">
         <div className="chromebook:hidden">
           <Hamburger isOpen={isSidebarOpen} onClick={onMenuClick} />
         </div>

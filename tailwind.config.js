@@ -111,6 +111,7 @@ export default {
       },
       height: {
         "screen-minus-header": "calc(100dvh - 149px)",
+        // "mobile-screen-minus-header": "calc(100dvh - 141px)",
       },
       width: {
         "screen-minus-sidebar": "calc(100dvw - 250px)",

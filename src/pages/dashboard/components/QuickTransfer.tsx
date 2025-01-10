@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/dialog"
 import { useToast } from "@/hooks/use-toast"
 import { useMyContacts } from "@/hooks/useMyContacts"
+import { useScreenSize } from "@/store/useScreenStore"
 import { FormEvent, useCallback, useEffect, useMemo, useState } from "react"
 
 interface TransferConfirmation {
@@ -38,6 +39,9 @@ const QuickTransfer = () => {
     amount: "",
     recipient: null,
   })
+  const isLargeScreen = useScreenSize()
+  const profileImageSize = isLargeScreen ? 70 : 50
+  const buttonHeight = isLargeScreen ? 50 : 40
 
   useEffect(() => {
     if (!api) {
@@ -99,11 +103,11 @@ const QuickTransfer = () => {
   }
 
   return (
-    <div className="relative">
+    <div className="relative chromebook:pl-[20px]">
       <h2 className="text-accent-blue">Quick Transfer</h2>
       <CustomCard
-        containerClass="w-[445px] h-[280px] mt-5"
-        contentClass="px-[25px] pt-[35px] pb-[40px]"
+        containerClass="w-full h-full chromebook:w-[445px] chromebook:h-[280px] mt-3 chromebook:mt-5 border-none chromebook:border"
+        contentClass="px-[18px] py-5 chromebook:px-[25px] chromebook:pt-[35px] chromebook:pb-[40px]"
       >
         <Carousel
           opts={{
@@ -111,13 +115,13 @@ const QuickTransfer = () => {
             loop: true,
           }}
           setApi={setApi}
-          className="min-h-[139px]"
+          className="chromebook:min-h-[139px]"
         >
           <CarouselContent className="mt-1">
             {contacts?.map((contact, index) => (
               <CarouselItem
                 key={contact.id}
-                className="flex flex-col items-center basis-1/3 cursor-pointer"
+                className="flex flex-col items-center basis-1/2 chromebook:basis-1/3 cursor-pointer"
                 onClick={() => handleItemClick(index)}
               >
                 <div
@@ -130,12 +134,12 @@ const QuickTransfer = () => {
                     src={contact.profilePicture}
                     isLoading={isLoading}
                     alt={contact.name}
-                    size={70}
+                    size={profileImageSize}
                   />
                 </div>
                 <p
                   className={`
-                    text-base leading-[1.2] font-normal mt-[15px] text-active-link w-max transition-colors duration-300 max-w-[106px] truncate
+                    text-xs chromebook:text-base leading-[1.2] font-normal mt-3 chromebook:mt-[15px] text-active-link w-max transition-colors duration-300 max-w-[106px] truncate
                     ${isActiveSlide(index) ? "font-bold" : "font-normal"}
                   `}
                 >
@@ -143,7 +147,7 @@ const QuickTransfer = () => {
                 </p>
                 <p
                   className={`
-                    text-[15px] leading-[1.2] font-normal mt-[5px] text-center transition-colors duration-300 text-soft-blue line-clamp-2
+                    text-xs chromebook:text-[15px] leading-[1.2] font-normal mt-[1px] chromebook:mt-[5px] text-center transition-colors duration-300 text-soft-blue line-clamp-2
                      ${isActiveSlide(index) ? "font-bold" : "font-normal"}
                   `}
                 >
@@ -155,33 +159,33 @@ const QuickTransfer = () => {
         </Carousel>
         <button
           onClick={handlePrev}
-          className="size-[50px] border border-soft-blue/25 absolute left-[-20px] top-[110px] group flex items-center justify-center rounded-full bg-white shadow-[4px_4px_18px_-2px_rgba(231,228,232,0.8)] hover:bg-soft-blue duration-300 transition-all"
+          className="size-[40px] chromebook:size-[50px] border border-soft-blue/25 absolute left-[-5px] chromebook:left-[0px] top-[75px] chromebook:top-[110px] group flex items-center justify-center rounded-full bg-white shadow-[4px_4px_18px_-2px_rgba(231,228,232,0.8)] hover:bg-soft-blue duration-300 transition-all"
         >
           <Icon
             icon="keyboard_arrow_right"
-            size={25}
+            size={isLargeScreen ? 25 : 20}
             className="text-soft-blue group-hover:text-white duration-300 transition-all cursor-pointer rotate-180"
           />
         </button>
         <button
           onClick={handleNext}
-          className="size-[50px] border border-soft-blue/25 absolute right-[-20px] top-[110px] group flex items-center justify-center rounded-full bg-white shadow-[4px_4px_18px_-2px_rgba(231,228,232,0.8)] hover:bg-soft-blue duration-300 transition-all"
+          className="size-[40px] chromebook:size-[50px] border border-soft-blue/25 absolute right-[-5px] chromebook:right-[-20px] top-[75px] chromebook:top-[110px] group flex items-center justify-center rounded-full bg-white shadow-[4px_4px_18px_-2px_rgba(231,228,232,0.8)] hover:bg-soft-blue duration-300 transition-all"
         >
           <Icon
             icon="keyboard_arrow_right"
-            size={25}
+            size={isLargeScreen ? 25 : 20}
             className="text-soft-blue group-hover:text-white duration-300 transition-all cursor-pointer"
           />
         </button>
         <form
           onSubmit={handleSubmit}
-          className="flex items-center justify-between mt-[29px]"
+          className="flex items-center justify-between mt-[22px] chromebook:mt-[29px]"
         >
-          <p className="text-base leading-[1.2] font-normal text-soft-blue">
+          <p className="text-xs chromebook:text-base leading-[1.2] font-normal text-soft-blue">
             Write Amount
           </p>
-          <div className="flex items-center relative w-[265px]">
-            <div className="w-[163px]">
+          <div className="flex items-center relative w-[187px] chromebook:w-[265px]">
+            <div className="w-[95px] chromebook:w-[163px]">
               <CustomInput
                 inputType="number"
                 placeholderText="$525.00"
@@ -194,8 +198,9 @@ const QuickTransfer = () => {
             <CustomButton
               buttonText="Send"
               extraClasses="absolute right-0"
-              icon={<Icon icon="plane" size={26} />}
+              icon={<Icon icon="plane" size={isLargeScreen ? 26 : 18} />}
               buttonType="submit"
+              height={buttonHeight}
             />
           </div>
         </form>
