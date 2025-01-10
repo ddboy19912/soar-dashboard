@@ -16,7 +16,7 @@ export const formatDate = (dateString: string): string => {
 };
 
 export const formatBalance = (amount: number) => {
-  return new Intl.NumberFormat('en-US', {
+  return new Intl.NumberFormat("en-US", {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }).format(amount);
