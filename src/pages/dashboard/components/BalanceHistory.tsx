@@ -28,7 +28,7 @@ const BalanceHistory = () => {
     <div>
       <h2 className="text-accent-blue">Balance History</h2>
       <CustomCard
-        containerClass="h-[280px] w-full chromebook:w-[635px] mt-3 chromebook:mt-5 border-none chromebook:border"
+        containerClass="h-[280px] w-full chromebook:w-[615px] mt-3 chromebook:mt-5 border-none chromebook:border"
         contentClass="py-[29px] px-[18px] chromebook:pr-[25px] chromebook:pl-[20px]"
       >
         <ChartContainer className="h-[216px] w-full" config={chartConfig}>

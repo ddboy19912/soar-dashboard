@@ -27,11 +27,11 @@ const RootLayout = () => {
       <Toaster />
       <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
       <div
-        className={`flex-1 ml-0 chromebook:ml-[250px] ${mobilePageBackground} chromebook:bg-input-background`}
+        className={`flex-1 ml-0 chromebook:ml-[250px] ${mobilePageBackground} chromebook:bg-input-background overflow-hidden`}
       >
         <Navbar isSidebarOpen={isSidebarOpen} onMenuClick={toggleSidebar} />
         <main className="pt-[141px] chromebook:pt-[101px] w-full">
-          <div className="container mx-auto chromebook:mx-0 chromebook:max-w-[1190px] px-[25px] pt-[1px] pb-5 md:px-8 chromebook:px-10 chromebook:py-6">
+          <div className="container chromebook:max-w-[1190px] px-[25px] pt-[1px] pb-5 md:px-8 chromebook:px-10 chromebook:pt-6 chromebook:pb-[30px] overflow-x-visible">
             <Outlet />
           </div>
         </main>

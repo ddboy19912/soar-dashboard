@@ -103,7 +103,7 @@ const QuickTransfer = () => {
   }
 
   return (
-    <div className="relative">
+    <div className="relative chromebook:pl-[20px]">
       <h2 className="text-accent-blue">Quick Transfer</h2>
       <CustomCard
         containerClass="w-full h-full chromebook:w-[445px] chromebook:h-[280px] mt-3 chromebook:mt-5 border-none chromebook:border"
@@ -159,7 +159,7 @@ const QuickTransfer = () => {
         </Carousel>
         <button
           onClick={handlePrev}
-          className="size-[40px] chromebook:size-[50px] border border-soft-blue/25 absolute left-[-5px] chromebook:left-[-20px] top-[75px] chromebook:top-[110px] group flex items-center justify-center rounded-full bg-white shadow-[4px_4px_18px_-2px_rgba(231,228,232,0.8)] hover:bg-soft-blue duration-300 transition-all"
+          className="size-[40px] chromebook:size-[50px] border border-soft-blue/25 absolute left-[-5px] chromebook:left-[0px] top-[75px] chromebook:top-[110px] group flex items-center justify-center rounded-full bg-white shadow-[4px_4px_18px_-2px_rgba(231,228,232,0.8)] hover:bg-soft-blue duration-300 transition-all"
         >
           <Icon
             icon="keyboard_arrow_right"
