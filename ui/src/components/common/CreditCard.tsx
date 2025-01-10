@@ -1,5 +1,6 @@
 import { ChipIllustration } from "@/assets";
 import { formatCardNumber } from "@/lib/card";
+import { formatBalance } from "@/lib/helpers";
 
 interface CreditCardProps {
   balance: number;
@@ -49,7 +50,7 @@ const CreditCard = ({
             Balance
           </p>
           <p className="text-[16px] chromebook:text-[20px] leading-6 font-semibold font-lato">
-            ${balance}
+            ${formatBalance(balance)}
           </p>
         </div>
         <img

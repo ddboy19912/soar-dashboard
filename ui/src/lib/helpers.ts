@@ -15,18 +15,19 @@ export const formatDate = (dateString: string): string => {
   });
 };
 
+export const formatBalance = (amount: number) => {
+  return new Intl.NumberFormat('en-US', {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+};
+
 export const formatAmount = (
   amount: number,
   options: FormatAmountOptions
 ): string => {
   const { type, abbreviated = true } = options;
   const prefix = type === "credit" ? "+" : "-";
-
-  // Format with commas, no decimals to follow the design
-  const formatter = new Intl.NumberFormat("en-US", {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  });
 
   // Handles large numbers with abbreviation
   if (abbreviated && amount >= 10000) {
@@ -44,7 +45,7 @@ export const formatAmount = (
     }
   }
 
-  const formattedAmount = formatter.format(Math.round(amount));
+  const formattedAmount = formatBalance(Math.round(amount));
   const fullAmount = `${prefix}$${formattedAmount}`;
 
   return fullAmount;
