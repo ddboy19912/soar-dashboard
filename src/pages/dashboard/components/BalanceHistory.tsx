@@ -6,10 +6,12 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 import { useMonthlyBalances } from "@/hooks/useMonthlyBalances"
+import { useScreenSize } from "@/store/useScreenStore"
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
 
 const BalanceHistory = () => {
   const { data: monthlyBalances } = useMonthlyBalances()
+  const isLargeScreen = useScreenSize()
 
   const chartConfig = {
     balance: {
@@ -26,8 +28,8 @@ const BalanceHistory = () => {
     <div>
       <h2 className="text-accent-blue">Balance History</h2>
       <CustomCard
-        containerClass="h-[280px] w-[635px] mt-5"
-        contentClass="py-[29px] pr-[25px] pl-0"
+        containerClass="h-[280px] w-full chromebook:w-[635px] mt-3 chromebook:mt-5 border-none chromebook:border"
+        contentClass="py-[29px] px-[18px] chromebook:pr-[25px] chromebook:pl-[20px]"
       >
         <ChartContainer className="h-[216px] w-full" config={chartConfig}>
           <AreaChart
@@ -38,7 +40,11 @@ const BalanceHistory = () => {
               right: 12,
             }}
           >
-            <CartesianGrid vertical={false} />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke="#DFE5EE"
+              vertical={true}
+            />
             <XAxis
               dataKey="month"
               tickLine={false}
@@ -50,6 +56,7 @@ const BalanceHistory = () => {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
+              width={isLargeScreen ? 50 : 40}
               tickFormatter={(value) => value.toLocaleString()}
             />
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />

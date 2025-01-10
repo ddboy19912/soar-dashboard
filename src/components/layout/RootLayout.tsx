@@ -1,11 +1,14 @@
 import Navbar from "@/components/navigation/Navbar"
 import Sidebar from "@/components/navigation/Sidebar"
 import { useCallback, useState } from "react"
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 import { Toaster } from "../ui/toaster"
 
 const RootLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const pathname = useLocation().pathname
+
+  const isSettingsPath = pathname === "/settings"
 
   const closeSidebar = useCallback(() => {
     setIsSidebarOpen(false)
@@ -15,18 +18,24 @@ const RootLayout = () => {
     setIsSidebarOpen(!isSidebarOpen)
   }, [isSidebarOpen])
 
+  const mobilePageBackground = isSettingsPath
+    ? "bg-input-background"
+    : "bg-white"
+
   return (
     <div className="min-h-screen bg-gray-50 flex">
+      <Toaster />
       <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
-      <div className="flex-1 ml-0 chromebook:ml-[250px] bg-input-background">
+      <div
+        className={`flex-1 ml-0 chromebook:ml-[250px] ${mobilePageBackground} chromebook:bg-input-background`}
+      >
         <Navbar isSidebarOpen={isSidebarOpen} onMenuClick={toggleSidebar} />
-        <main className="pt-[101px]">
-          <div className="container mx-auto px-10 py-6">
+        <main className="pt-[141px] chromebook:pt-[101px] w-full">
+          <div className="container mx-auto chromebook:mx-0 chromebook:max-w-[1190px] px-[25px] pt-[1px] pb-5 md:px-8 chromebook:px-10 chromebook:py-6">
             <Outlet />
           </div>
         </main>
       </div>
-      <Toaster />
     </div>
   )
 }

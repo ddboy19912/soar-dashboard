@@ -39,21 +39,23 @@ const TransactionCard = ({ transaction }: { transaction: Transaction }) => {
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-[17px]">
         <div
-          className={`size-[55px] rounded-full flex items-center justify-center ${bgColor}`}
+          className={`size-[50px] chromebook:size-[55px] rounded-full flex items-center justify-center ${bgColor}`}
         >
           <Icon icon={icon} size={24} className="text-gray-700" />
         </div>
         <div>
-          <p className="text-base leading-[1.2] text-active-link font-medium truncate max-w-[151px]">
+          <p className="text-sm chromebook:text-base leading-[1.2] text-active-link font-medium truncate max-w-[151px]">
             {transaction.description}
           </p>
-          <p className="text-[15px] leading-[1.2] text-soft-blue font-normal mt-[7px]">
+          <p className="text-xs chromebook:text-[15px] leading-[1.2] text-soft-blue font-normal mt-[7px]">
             {formatDate(transaction.date)}
           </p>
         </div>
       </div>
       <div>
-        <p className={`text-base leading-[1.2] font-medium ${amountClasses}`}>
+        <p
+          className={`text-sm chromebook:text-base leading-[1.2] font-medium ${amountClasses}`}
+        >
           {formatAmount(transaction.amount, {
             type: transaction.type,
           })}
@@ -70,10 +72,10 @@ const RecentTransactions = () => {
     <div>
       <h2 className="text-accent-blue">Recent Transactions</h2>
       <CustomCard
-        containerClass="mt-5 w-[350px] h-[235px] overflow-y-auto hide-scrollbar"
-        contentClass="p-[25px]"
+        containerClass="mt-[22px] chromebook:mt-5 w-full chromebook:w-[350px] h-[235px] border overflow-y-auto hide-scrollbar"
+        contentClass="px-3 py-5 md:py-5 md:px-[25px] chromebook:py-[25px]"
       >
-        <div className="space-y-[10px]">
+        <div className="space-y-3 chromebook:space-y-[10px]">
           {transactions?.map((transaction) => (
             <TransactionCard key={transaction.id} transaction={transaction} />
           ))}

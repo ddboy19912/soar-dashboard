@@ -8,15 +8,15 @@ import WeeklyActivity from "./components/WeeklyActivity"
 const Dashboard = () => {
   return (
     <div>
-      <div className="flex overflow-x-auto gap-[30px]">
+      <div className="flex flex-col chromebook:flex-row chromebook:overflow-x-auto gap-[22px] chromebook:gap-[30px] hide-scrollbar">
         <MyCards />
         <RecentTransactions />
       </div>
-      <div className="flex overflow-x-auto gap-[30px] mt-6">
+      <div className="flex flex-col lg:flex-row chromebook:overflow-x-auto gap-[22px] chromebook:gap-[30px] mt-[22px] chromebook:mt-6 hide-scrollbar">
         <WeeklyActivity />
         <ExpenseStatistics />
       </div>
-      <div className="flex gap-[30px] mt-6">
+      <div className="flex flex-col lg:flex-row gap-[22px] chromebook:gap-[30px] mt-[22px] chromebook:mt-6 hide-scrollbar">
         <QuickTransfer />
         <BalanceHistory />
       </div>

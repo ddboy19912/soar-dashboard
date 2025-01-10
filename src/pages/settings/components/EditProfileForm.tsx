@@ -22,6 +22,7 @@ import { useUpdateUser } from "@/hooks/useUpdateUser"
 import { useUserData } from "@/hooks/useUserData"
 import { cn, encryptPassword } from "@/lib/utils"
 import { profileFormSchema } from "@/lib/validations"
+import { useScreenSize } from "@/store/useScreenStore"
 import { useUserStore } from "@/store/useUserStore"
 import { User } from "@/types"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -47,6 +48,7 @@ const getFormValues = (userData?: User) => ({
 const EditProfileForm = () => {
   const { getUserId } = useUserStore()
   const userId = getUserId()
+  const isLargeScreen = useScreenSize()
 
   const { data: userData, refetch } = useUserData(userId)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -133,15 +135,15 @@ const EditProfileForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <div className="px-[30px] pt-[41px] flex gap-[57px]">
+        <div className="flex flex-col chromebook:flex-row items-center chromebook:items-start px-0 chromebook:px-[30px] pt-[45px] chromebook:pt-[41px] gap-[22px] chromebook:gap-[57px]">
           <div
-            className="relative min-w-[90px] w-max h-max cursor-pointer z-[1] group"
+            className="relative min-w-[100px] chromebook:min-w-[90px] w-max h-max cursor-pointer z-[1] group"
             onClick={handleImageClick}
           >
             <ProfileImage
               src={imagePreview || userData?.profilePicture}
               alt={userData?.name}
-              size={90}
+              size={isLargeScreen ? 90 : 100}
             />
             <input
               ref={fileInputRef}
@@ -164,12 +166,12 @@ const EditProfileForm = () => {
             </div>
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] z-[-1] bg-soft-blue/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </div>
-          <div className="grid grid-cols-2 gap-x-[30px] gap-y-[22px] w-full">
+          <div className="flex flex-col items-center lg:grid lg:grid-cols-2 gap-x-[30px] gap-y-4 chromebook:gap-y-[22px] w-full">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="w-full">
                   <FormLabel className={formLabelClasses}>Your Name</FormLabel>
                   <FormControl>
                     <Input
@@ -187,7 +189,7 @@ const EditProfileForm = () => {
               control={form.control}
               name="username"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="w-full">
                   <FormLabel className={formLabelClasses}>User Name</FormLabel>
                   <FormControl>
                     <Input
@@ -205,7 +207,7 @@ const EditProfileForm = () => {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="w-full">
                   <FormLabel className={formLabelClasses}>Email</FormLabel>
                   <FormControl>
                     <Input
@@ -224,7 +226,7 @@ const EditProfileForm = () => {
               control={form.control}
               name="password"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="w-full">
                   <FormLabel className={formLabelClasses}>Password</FormLabel>
                   <FormControl>
                     <Input
@@ -243,7 +245,7 @@ const EditProfileForm = () => {
               control={form.control}
               name="dob"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="w-full">
                   <FormLabel className={formLabelClasses}>
                     Date of Birth
                   </FormLabel>
@@ -289,7 +291,7 @@ const EditProfileForm = () => {
               control={form.control}
               name="presentAddress"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="w-full">
                   <FormLabel className={formLabelClasses}>
                     Present Address
                   </FormLabel>
@@ -308,7 +310,7 @@ const EditProfileForm = () => {
               control={form.control}
               name="permanentAddress"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="w-full">
                   <FormLabel className={formLabelClasses}>
                     Permanent Address
                   </FormLabel>
@@ -327,7 +329,7 @@ const EditProfileForm = () => {
               control={form.control}
               name="city"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="w-full">
                   <FormLabel className={formLabelClasses}>City</FormLabel>
                   <FormControl>
                     <Input
@@ -344,7 +346,7 @@ const EditProfileForm = () => {
               control={form.control}
               name="postalCode"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="w-full">
                   <FormLabel className={formLabelClasses}>
                     Postal Code
                   </FormLabel>
@@ -363,7 +365,7 @@ const EditProfileForm = () => {
               control={form.control}
               name="country"
               render={({ field }) => (
-                <FormItem>
+                <FormItem className="w-full">
                   <FormLabel className={formLabelClasses}>Country</FormLabel>
                   <FormControl>
                     <Input
@@ -376,10 +378,10 @@ const EditProfileForm = () => {
                 </FormItem>
               )}
             />
-            <div className="col-span-2 flex justify-end">
+            <div className="col-span-2 flex justify-end w-full">
               <Button
                 type="submit"
-                className="w-max mt-[19px] px-[74px] py-[14px] rounded-[15px] font-medium text-lg leading-[1.2] text-white h-[50px]"
+                className="w-full lg:w-max mt-[19px] px-[74px] py-[14px] rounded-[15px] font-medium text-[15px] chromebook:text-lg leading-[1.2] text-white h-[50px]"
                 disabled={isPending}
               >
                 {isPending ? "Updating..." : "Save"}

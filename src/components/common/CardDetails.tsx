@@ -15,7 +15,7 @@ const CardDetails = ({ card }: { card: Card }) => {
 
   return (
     <div className="mt-4 space-y-4">
-      <div className="flex items-center gap-4 p-4 bg-gray-100 rounded-lg">
+      <div className="flex items-center justify-between gap-4 p-4 bg-gray-100 rounded-lg">
         <div>
           <p className="text-sm text-gray-500">Card Number</p>
           <p className="font-medium">{card.cardNumber}</p>
