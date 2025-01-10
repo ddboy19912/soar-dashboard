@@ -159,6 +159,8 @@ const QuickTransfer = () => {
         </Carousel>
         <button
           onClick={handlePrev}
+          aria-label="Previous contact"
+          aria-controls="contacts-slider"
           className="size-[40px] chromebook:size-[50px] border border-soft-blue/25 absolute left-[-5px] chromebook:left-[0px] top-[75px] chromebook:top-[110px] group flex items-center justify-center rounded-full bg-white shadow-[4px_4px_18px_-2px_rgba(231,228,232,0.8)] hover:bg-soft-blue duration-300 transition-all"
         >
           <Icon
@@ -169,6 +171,8 @@ const QuickTransfer = () => {
         </button>
         <button
           onClick={handleNext}
+          aria-label="Next contact"
+          aria-controls="contacts-slider"
           className="size-[40px] chromebook:size-[50px] border border-soft-blue/25 absolute right-[-5px] chromebook:right-[-20px] top-[75px] chromebook:top-[110px] group flex items-center justify-center rounded-full bg-white shadow-[4px_4px_18px_-2px_rgba(231,228,232,0.8)] hover:bg-soft-blue duration-300 transition-all"
         >
           <Icon

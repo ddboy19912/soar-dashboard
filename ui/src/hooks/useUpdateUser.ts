@@ -27,8 +27,10 @@ export const useUpdateUser = (id: string) => {
     },
     onError: (error) => {
       // Only show error toast for non-EROFS errors - To bypass vercel serverless error
-      if (!(error instanceof AxiosError) || 
-          !error.response?.data?.includes('EROFS')) {
+      if (
+        !(error instanceof AxiosError) ||
+        !error.response?.data?.includes("EROFS")
+      ) {
         toast({
           variant: "destructive",
           title: "Update Failed",
