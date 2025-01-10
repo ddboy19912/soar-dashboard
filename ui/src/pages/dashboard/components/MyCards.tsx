@@ -60,7 +60,7 @@ const MyCards = () => {
             <DialogTitle className="text-2xl">My Cards</DialogTitle>
             <DialogDescription>List of your cards</DialogDescription>
           </DialogHeader>
-          <div className="grid max-h-[80vh] overflow-y-auto gap-x-[30px] chromebook:gap-x-0">
+          <div className="grid max-h-[70dvh] overflow-y-auto gap-x-[30px] chromebook:gap-x-0">
             {cards?.map((card, index) => (
               <div key={card.id} className="space-y-4">
                 <div className="flex flex-col chromebook:flex-row chromebook:items-center chromebook:justify-around gap-3 chromebook:gap-6">
