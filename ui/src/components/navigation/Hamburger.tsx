@@ -6,6 +6,10 @@ interface HamburgerProps {
 const Hamburger = ({ isOpen, onClick }: HamburgerProps) => {
   return (
     <button
+      name="hamburger"
+      aria-label="Hamburger"
+      aria-expanded={isOpen}
+      aria-controls="sidebar"
       className="flex flex-col justify-center items-center w-[18px] h-[14px] focus:outline-none"
       onClick={onClick}
     >
