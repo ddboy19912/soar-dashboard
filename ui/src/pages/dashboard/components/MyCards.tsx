@@ -34,18 +34,33 @@ const MyCards = () => {
         </div>
         <div className="mt-[22px] chromebook:mt-5 chromebook:w-full">
           <div className="flex gap-[20px] chromebook:gap-[30px] overflow-x-auto hide-scrollbar w-[calc(100vw-25px)] -mr-[25px] chromebook:w-auto chromebook:mr-0">
-            {cards?.map((card) => (
-              <div key={card.id} className="shrink-0">
-                <CreditCard
-                  balance={card.balance}
-                  cardColor={card.cardColor}
-                  cardNumber={card.cardNumber}
-                  isLoading={isLoading}
-                  holderName={card.cardHolder}
-                  validThru={card.expiryDate}
-                />
+            {isLoading ? (
+              <div className="w-[730px] h-[235px] flex items-center gap-[20px] chromebook:gap-[30px]">
+                <div
+                  className={`rounded-[15px] chromebook:rounded-[25px] bg-card-gradient w-[265px] h-[172px] chromebook:w-[350px] chromebook:h-[235px] overflow-hidden relative`}
+                >
+                  <div className="absolute inset-0 translate-x-[-100%] animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                </div>
+                <div
+                  className={`rounded-[15px] chromebook:rounded-[25px] bg-white border border-card-border w-[265px] h-[172px] chromebook:w-[350px] chromebook:h-[235px] overflow-hidden relative`}
+                >
+                  <div className="absolute inset-0 translate-x-[-100%] animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                </div>
               </div>
-            ))}
+            ) : (
+              cards?.map((card) => (
+                <div key={card.id} className="shrink-0">
+                  <CreditCard
+                    balance={card.balance}
+                    cardColor={card.cardColor}
+                    cardNumber={card.cardNumber}
+                    isLoading={isLoading}
+                    holderName={card.cardHolder}
+                    validThru={card.expiryDate}
+                  />
+                </div>
+              ))
+            )}
             <div
               className="shrink-0 w-[5px] h-1 chromebook:hidden"
               aria-hidden="true"

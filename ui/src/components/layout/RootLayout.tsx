@@ -31,7 +31,7 @@ const RootLayout = () => {
       >
         <Navbar isSidebarOpen={isSidebarOpen} onMenuClick={toggleSidebar} />
         <main className="pt-[141px] chromebook:pt-[101px] w-full">
-          <div className="container chromebook:max-w-[1190px] px-[25px] pt-[1px] pb-5 md:px-8 chromebook:px-10 chromebook:pt-6 chromebook:pb-[30px] overflow-x-visible">
+          <div className="container mx-auto chromebook:mx-0 chromebook:max-w-[1190px] px-[25px] pt-[1px] pb-5 md:px-8 chromebook:px-10 chromebook:pt-6 chromebook:pb-[30px] overflow-x-visible">
             <Outlet />
           </div>
         </main>
