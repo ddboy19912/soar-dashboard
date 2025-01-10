@@ -46,7 +46,7 @@ const Navbar = ({ isSidebarOpen, onMenuClick }: NavbarProps) => {
               inputType="search"
               placeholderText="Search for something"
             />
-            <Link to="/settings">
+            <Link to="/settings" title="Settings">
               <div className="rounded-full bg-input-background size-[50px] flex items-center justify-center group cursor-pointer">
                 <Icon
                   icon="cog"
@@ -64,7 +64,7 @@ const Navbar = ({ isSidebarOpen, onMenuClick }: NavbarProps) => {
               />
             </div>
           </div>
-          <Link to="/settings" className="group relative">
+          <Link to="/settings" title="Profile" className="group relative">
             <ProfileImage
               src={userData?.profilePicture}
               name={userData?.name}
