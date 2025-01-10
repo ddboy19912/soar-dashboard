@@ -1,0 +1,26 @@
+{
+  "name": "soar-dashboard",
+  "private": true,
+  "workspaces": [
+    "ui",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:ui\" \"npm run dev:backend\"",
+    "dev:ui": "cd ui && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build:ui": "cd ui && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "lint": "cd ui && npm run format",
+    "deploy": "npm run deploy:ui && npm run deploy:backend",
+    "deploy:ui": "cd ui && vercel --prod",
+    "deploy:backend": "cd backend && vercel --prod",
+    "deploy:preview": "npm run deploy:ui:preview && npm run deploy:backend:preview",
+    "deploy:ui:preview": "cd ui && vercel",
+    "deploy:backend:preview": "cd backend && vercel"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.0",
+    "vercel": "^32.0.0"
+  }
+}
