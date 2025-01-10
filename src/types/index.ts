@@ -9,3 +9,10 @@ export type {
   TransactionType,
 } from "./transaction";
 export type { User } from "./user";
+
+import { CustomComponents } from "react-day-picker";
+
+export type ExtendedCustomComponents = Partial<CustomComponents> & {
+  IconLeft?: React.ComponentType<React.ComponentProps<"svg">>;
+  IconRight?: React.ComponentType<React.ComponentProps<"svg">>;
+};
