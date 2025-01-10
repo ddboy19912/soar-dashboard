@@ -1,12 +1,12 @@
 type CustomButtonProps = {
-  buttonType?: "button" | "submit" | "reset"
-  buttonText: string | React.ReactNode
-  extraClasses?: string
-  onClick?: () => void
-  disabled?: boolean
-  icon?: React.ReactNode
-  height?: number
-}
+  buttonType?: "button" | "submit" | "reset";
+  buttonText: string | React.ReactNode;
+  extraClasses?: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  icon?: React.ReactNode;
+  height?: number;
+};
 
 const CustomButton = ({
   buttonType = "button",
@@ -29,7 +29,7 @@ const CustomButton = ({
     >
       {buttonText} {icon}
     </button>
-  )
-}
+  );
+};
 
-export default CustomButton
+export default CustomButton;

@@ -1,4 +1,4 @@
-import { PreferencesIllustration } from "@/assets"
+import { PreferencesIllustration } from "@/assets";
 
 const Preferences = () => {
   return (
@@ -10,7 +10,7 @@ const Preferences = () => {
         className="w-[500px] aspect-auto"
       />
     </div>
-  )
-}
+  );
+};
 
-export default Preferences
+export default Preferences;

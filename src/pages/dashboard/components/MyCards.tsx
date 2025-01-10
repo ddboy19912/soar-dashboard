@@ -1,24 +1,24 @@
-import CardDetails from "@/components/common/CardDetails"
-import CreditCard from "@/components/common/CreditCard"
+import CardDetails from "@/components/common/CardDetails";
+import CreditCard from "@/components/common/CreditCard";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 
-import { useCards } from "@/hooks/useCards"
-import { useCallback, useState } from "react"
+import { useCards } from "@/hooks/useCards";
+import { useCallback, useState } from "react";
 
 const MyCards = () => {
-  const { data: cards, isLoading } = useCards()
+  const { data: cards, isLoading } = useCards();
 
-  const [showAllCards, setShowAllCards] = useState(false)
+  const [showAllCards, setShowAllCards] = useState(false);
 
   const handleShowAllCards = useCallback(() => {
-    setShowAllCards(true)
-  }, [])
+    setShowAllCards(true);
+  }, []);
 
   return (
     <>
@@ -90,7 +90,7 @@ const MyCards = () => {
         </DialogContent>
       </Dialog>
     </>
-  )
-}
+  );
+};
 
-export default MyCards
+export default MyCards;

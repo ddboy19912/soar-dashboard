@@ -1,17 +1,17 @@
-import CustomCard from "@/components/common/CustomCard"
+import CustomCard from "@/components/common/CustomCard";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart"
-import { useMonthlyBalances } from "@/hooks/useMonthlyBalances"
-import { useScreenSize } from "@/store/useScreenStore"
-import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts"
+} from "@/components/ui/chart";
+import { useMonthlyBalances } from "@/hooks/useMonthlyBalances";
+import { useScreenSize } from "@/store/useScreenStore";
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 
 const BalanceHistory = () => {
-  const { data: monthlyBalances } = useMonthlyBalances()
-  const isLargeScreen = useScreenSize()
+  const { data: monthlyBalances } = useMonthlyBalances();
+  const isLargeScreen = useScreenSize();
 
   const chartConfig = {
     balance: {
@@ -22,7 +22,7 @@ const BalanceHistory = () => {
       label: "Growth",
       color: "rgb(45, 96, 255)",
     },
-  } satisfies ChartConfig
+  } satisfies ChartConfig;
 
   return (
     <div>
@@ -86,7 +86,7 @@ const BalanceHistory = () => {
         </ChartContainer>
       </CustomCard>
     </div>
-  )
-}
+  );
+};
 
-export default BalanceHistory
+export default BalanceHistory;

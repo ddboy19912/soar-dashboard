@@ -1,5 +1,5 @@
-import { Route, Routes } from "react-router-dom"
-import { RootLayout } from "./components/layout"
+import { Route, Routes } from "react-router-dom";
+import { RootLayout } from "./components/layout";
 import {
   Accounts,
   CreditCards,
@@ -10,7 +10,7 @@ import {
   Services,
   Settings,
   Transactions,
-} from "./pages"
+} from "./pages";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
         <Route path="/transactions" element={<Transactions />} />
       </Route>
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;

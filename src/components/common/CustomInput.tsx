@@ -1,14 +1,14 @@
-import Icon from "../Icon"
+import Icon from "../Icon";
 
 interface CustomInputProps {
-  inputType: "text" | "number" | "email" | "password" | "search"
-  placeholderText: string
-  extraClasses?: string
-  roundedLeft?: boolean
-  roundedRight?: boolean
-  value?: string
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  name?: string
+  inputType: "text" | "number" | "email" | "password" | "search";
+  placeholderText: string;
+  extraClasses?: string;
+  roundedLeft?: boolean;
+  roundedRight?: boolean;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  name?: string;
 }
 
 const CustomInput = ({
@@ -21,8 +21,8 @@ const CustomInput = ({
   onChange,
   name,
 }: CustomInputProps) => {
-  const isRoundedLeft = roundedLeft ? "rounded-l-[40px]" : ""
-  const isRoundedRight = roundedRight ? "rounded-r-[40px]" : ""
+  const isRoundedLeft = roundedLeft ? "rounded-l-[40px]" : "";
+  const isRoundedRight = roundedRight ? "rounded-r-[40px]" : "";
 
   return (
     <div
@@ -40,7 +40,7 @@ const CustomInput = ({
         name={name}
       />
     </div>
-  )
-}
+  );
+};
 
-export default CustomInput
+export default CustomInput;

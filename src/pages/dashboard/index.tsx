@@ -1,9 +1,9 @@
-import BalanceHistory from "./components/BalanceHistory"
-import ExpenseStatistics from "./components/ExpenseStatistics"
-import MyCards from "./components/MyCards"
-import QuickTransfer from "./components/QuickTransfer"
-import RecentTransactions from "./components/RecentTransactions"
-import WeeklyActivity from "./components/WeeklyActivity"
+import BalanceHistory from "./components/BalanceHistory";
+import ExpenseStatistics from "./components/ExpenseStatistics";
+import MyCards from "./components/MyCards";
+import QuickTransfer from "./components/QuickTransfer";
+import RecentTransactions from "./components/RecentTransactions";
+import WeeklyActivity from "./components/WeeklyActivity";
 
 const Dashboard = () => {
   return (
@@ -33,7 +33,7 @@ const Dashboard = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

@@ -1,4 +1,4 @@
-import { SecurityIllustration } from "@/assets"
+import { SecurityIllustration } from "@/assets";
 
 const Security = () => {
   return (
@@ -10,7 +10,7 @@ const Security = () => {
         className="w-[500px] aspect-auto"
       />
     </div>
-  )
-}
+  );
+};
 
-export default Security
+export default Security;

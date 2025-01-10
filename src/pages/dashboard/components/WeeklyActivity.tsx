@@ -1,15 +1,15 @@
-import CustomCard from "@/components/common/CustomCard"
+import CustomCard from "@/components/common/CustomCard";
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/chart"
-import { Skeleton } from "@/components/ui/skeleton"
-import { useDailyData } from "@/hooks/useDailyData"
-import { formatChartData } from "@/lib/helpers"
-import { useScreenSize } from "@/store/useScreenStore"
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
+} from "@/components/ui/chart";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useDailyData } from "@/hooks/useDailyData";
+import { formatChartData } from "@/lib/helpers";
+import { useScreenSize } from "@/store/useScreenStore";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 
 const chartConfig = {
   withdraw: {
@@ -20,7 +20,7 @@ const chartConfig = {
     label: "Deposit",
     color: "#ff0000",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 const WeeklyActivitySkeleton = () => {
   return (
@@ -36,15 +36,15 @@ const WeeklyActivitySkeleton = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const WeeklyActivity = () => {
-  const { data: dailyExpenses, isLoading } = useDailyData()
-  const chartData = dailyExpenses ? formatChartData(dailyExpenses) : []
-  const isLargeScreen = useScreenSize()
-  const barWidth = isLargeScreen ? 15 : 7
-  const barGap = isLargeScreen ? 12 : 5
+  const { data: dailyExpenses, isLoading } = useDailyData();
+  const chartData = dailyExpenses ? formatChartData(dailyExpenses) : [];
+  const isLargeScreen = useScreenSize();
+  const barWidth = isLargeScreen ? 15 : 7;
+  const barGap = isLargeScreen ? 12 : 5;
 
   return (
     <div>
@@ -108,7 +108,7 @@ const WeeklyActivity = () => {
         )}
       </CustomCard>
     </div>
-  )
-}
+  );
+};
 
-export default WeeklyActivity
+export default WeeklyActivity;

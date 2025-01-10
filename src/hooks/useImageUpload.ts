@@ -1,19 +1,19 @@
-import { useState } from "react"
-import { toast } from "./use-toast"
+import { useState } from "react";
+import { toast } from "./use-toast";
 
 interface UseImageUploadOptions {
-  maxSize?: number
-  acceptedTypes?: string[]
+  maxSize?: number;
+  acceptedTypes?: string[];
 }
 
 export const useImageUpload = (options: UseImageUploadOptions = {}) => {
   const {
     maxSize = 5 * 1024 * 1024, // 5MB
     acceptedTypes = ["image/jpeg", "image/png", "image/webp"],
-  } = options
+  } = options;
 
-  const [selectedImage, setSelectedImage] = useState<File | null>(null)
-  const [imagePreview, setImagePreview] = useState<string | null>(null)
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
 
   const handleImageSelect = (file: File) => {
     if (file.size > maxSize) {
@@ -21,8 +21,8 @@ export const useImageUpload = (options: UseImageUploadOptions = {}) => {
         variant: "destructive",
         title: "File too large",
         description: `Image must be less than ${maxSize / (1024 * 1024)}MB`,
-      })
-      return null
+      });
+      return null;
     }
 
     if (!acceptedTypes.includes(file.type)) {
@@ -30,35 +30,35 @@ export const useImageUpload = (options: UseImageUploadOptions = {}) => {
         variant: "destructive",
         title: "Invalid file type",
         description: `Please upload ${acceptedTypes.join(", ")}`,
-      })
-      return null
+      });
+      return null;
     }
 
-    setSelectedImage(file)
+    setSelectedImage(file);
 
     // Create preview
-    const reader = new FileReader()
+    const reader = new FileReader();
     reader.onloadend = () => {
-      setImagePreview(reader.result as string)
-    }
-    reader.readAsDataURL(file)
+      setImagePreview(reader.result as string);
+    };
+    reader.readAsDataURL(file);
 
-    return file
-  }
+    return file;
+  };
 
   const convertToBase64 = async (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
-      const reader = new FileReader()
-      reader.onload = () => resolve(reader.result as string)
-      reader.onerror = reject
-      reader.readAsDataURL(file)
-    })
-  }
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  };
 
   const resetImage = () => {
-    setSelectedImage(null)
-    setImagePreview(null)
-  }
+    setSelectedImage(null);
+    setImagePreview(null);
+  };
 
   return {
     selectedImage,
@@ -66,5 +66,5 @@ export const useImageUpload = (options: UseImageUploadOptions = {}) => {
     handleImageSelect,
     convertToBase64,
     resetImage,
-  }
-}
+  };
+};
