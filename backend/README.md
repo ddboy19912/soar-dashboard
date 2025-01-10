@@ -90,6 +90,7 @@ The backend is deployed on Vercel:
 - Vercel's filesystem is read-only
 - Data persistence is not available
 - Good enough for Mock purposes
+- **NB: Because of this limitations, the backend is deployed on a separate Vercel project (https://soar-dashboard-backend.vercel.app)**
 
 ### Security Considerations
 - No authentication implemented
