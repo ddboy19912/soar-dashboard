@@ -1,106 +1,106 @@
-import CustomButton from "@/components/common/CustomButton"
-import CustomCard from "@/components/common/CustomCard"
-import CustomInput from "@/components/common/CustomInput"
-import ProfileImage from "@/components/common/ProfileImage"
-import Icon from "@/components/Icon"
+import CustomButton from "@/components/common/CustomButton";
+import CustomCard from "@/components/common/CustomCard";
+import CustomInput from "@/components/common/CustomInput";
+import ProfileImage from "@/components/common/ProfileImage";
+import Icon from "@/components/Icon";
 import {
   Carousel,
   CarouselApi,
   CarouselContent,
   CarouselItem,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
 import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/ui/dialog"
-import { useToast } from "@/hooks/use-toast"
-import { useMyContacts } from "@/hooks/useMyContacts"
-import { useScreenSize } from "@/store/useScreenStore"
-import { FormEvent, useCallback, useEffect, useMemo, useState } from "react"
+} from "@/components/ui/dialog";
+import { useToast } from "@/hooks/use-toast";
+import { useMyContacts } from "@/hooks/useMyContacts";
+import { useScreenSize } from "@/store/useScreenStore";
+import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 
 interface TransferConfirmation {
-  isOpen: boolean
-  amount: string
-  recipient: string | null
+  isOpen: boolean;
+  amount: string;
+  recipient: string | null;
 }
 
 const QuickTransfer = () => {
-  const { data: contacts, isLoading } = useMyContacts()
+  const { data: contacts, isLoading } = useMyContacts();
 
-  const [api, setApi] = useState<CarouselApi>()
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [amount, setAmount] = useState("")
-  const { toast } = useToast()
+  const [api, setApi] = useState<CarouselApi>();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [amount, setAmount] = useState("");
+  const { toast } = useToast();
   const [confirmation, setConfirmation] = useState<TransferConfirmation>({
     isOpen: false,
     amount: "",
     recipient: null,
-  })
-  const isLargeScreen = useScreenSize()
-  const profileImageSize = isLargeScreen ? 70 : 50
-  const buttonHeight = isLargeScreen ? 50 : 40
+  });
+  const isLargeScreen = useScreenSize();
+  const profileImageSize = isLargeScreen ? 70 : 50;
+  const buttonHeight = isLargeScreen ? 50 : 40;
 
   useEffect(() => {
     if (!api) {
-      return
+      return;
     }
 
     api.on("select", () => {
-      setActiveIndex(api.selectedScrollSnap())
-    })
-  }, [api])
+      setActiveIndex(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   const handleNext = useCallback(() => {
-    api?.scrollNext()
-  }, [api])
+    api?.scrollNext();
+  }, [api]);
 
   const handlePrev = useCallback(() => {
-    api?.scrollPrev()
-  }, [api])
+    api?.scrollPrev();
+  }, [api]);
 
   const handleItemClick = useCallback(
     (index: number) => {
-      api?.scrollTo(index)
+      api?.scrollTo(index);
     },
     [api]
-  )
+  );
 
   const isActiveSlide = useCallback(
     (index: number) => {
-      return activeIndex === index
+      return activeIndex === index;
     },
     [activeIndex]
-  )
+  );
 
   const cantSendMoney = useMemo(
     () => amount === "0" || !amount || !contacts?.[activeIndex],
     [amount, activeIndex, contacts]
-  )
+  );
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (cantSendMoney) {
       toast({
         variant: "destructive",
         title: "Invalid Transfer",
         description: "Please enter an amount to send",
-      })
-      return
+      });
+      return;
     }
 
-    const selectedContact = contacts?.[activeIndex]
+    const selectedContact = contacts?.[activeIndex];
     setConfirmation({
       isOpen: true,
       amount,
       recipient: selectedContact?.name ?? null,
-    })
+    });
 
-    setAmount("")
-  }
+    setAmount("");
+  };
 
   return (
     <div className="relative chromebook:pl-[20px]">
@@ -236,7 +236,7 @@ const QuickTransfer = () => {
         </DialogContent>
       </Dialog>
     </div>
-  )
-}
+  );
+};
 
-export default QuickTransfer
+export default QuickTransfer;

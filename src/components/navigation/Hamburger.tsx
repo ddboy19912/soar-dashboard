@@ -1,6 +1,6 @@
 interface HamburgerProps {
-  isOpen: boolean
-  onClick: () => void
+  isOpen: boolean;
+  onClick: () => void;
 }
 
 const Hamburger = ({ isOpen, onClick }: HamburgerProps) => {
@@ -25,7 +25,7 @@ const Hamburger = ({ isOpen, onClick }: HamburgerProps) => {
         }`}
       />
     </button>
-  )
-}
+  );
+};
 
-export default Hamburger
+export default Hamburger;

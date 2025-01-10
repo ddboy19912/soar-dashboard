@@ -1,37 +1,37 @@
-import { useUserData } from "@/hooks/useUserData"
-import { useScreenSize } from "@/store/useScreenStore"
-import { useUserStore } from "@/store/useUserStore"
-import { Link, useLocation } from "react-router-dom"
-import CustomInput from "../common/CustomInput"
-import ProfileImage from "../common/ProfileImage"
-import Icon from "../Icon"
-import Hamburger from "./Hamburger"
+import { useUserData } from "@/hooks/useUserData";
+import { useScreenSize } from "@/store/useScreenStore";
+import { useUserStore } from "@/store/useUserStore";
+import { Link, useLocation } from "react-router-dom";
+import CustomInput from "../common/CustomInput";
+import ProfileImage from "../common/ProfileImage";
+import Icon from "../Icon";
+import Hamburger from "./Hamburger";
 
 interface NavbarProps {
-  isSidebarOpen: boolean
-  onMenuClick: () => void
+  isSidebarOpen: boolean;
+  onMenuClick: () => void;
 }
 
 const Navbar = ({ isSidebarOpen, onMenuClick }: NavbarProps) => {
-  const { getUserId } = useUserStore()
-  const userId = getUserId()
+  const { getUserId } = useUserStore();
+  const userId = getUserId();
 
-  const { data: userData, isLoading } = useUserData(userId)
+  const { data: userData, isLoading } = useUserData(userId);
 
-  const pathname = useLocation().pathname
+  const pathname = useLocation().pathname;
 
   const getPageName = () => {
     if (pathname === "/") {
-      return "Overview"
+      return "Overview";
     }
 
-    const pageName = pathname.split("/").pop() || ""
-    return pageName.replace(/-/g, " ")
-  }
+    const pageName = pathname.split("/").pop() || "";
+    return pageName.replace(/-/g, " ");
+  };
 
-  const isLargeScreen = useScreenSize()
+  const isLargeScreen = useScreenSize();
 
-  const profileImageSize = isLargeScreen ? 60 : 35
+  const profileImageSize = isLargeScreen ? 60 : 35;
 
   return (
     <div className="fixed z-20 w-screen chromebook:w-screen-minus-sidebar bg-white border-b border-transparent chromebook:border-primary-border px-[25px] pt-[25px] pb-5 xl:py-5 xl:px-10 flex flex-col xl:flex-row">
@@ -81,7 +81,7 @@ const Navbar = ({ isSidebarOpen, onMenuClick }: NavbarProps) => {
         placeholderText="Search for something"
       />
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

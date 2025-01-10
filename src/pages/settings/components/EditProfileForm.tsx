@@ -1,7 +1,7 @@
-import ProfileImage from "@/components/common/ProfileImage"
-import Icon from "@/components/Icon"
-import { Button } from "@/components/ui/button"
-import { Calendar } from "@/components/ui/calendar"
+import ProfileImage from "@/components/common/ProfileImage";
+import Icon from "@/components/Icon";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import {
   Form,
   FormControl,
@@ -9,28 +9,28 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
-import { toast } from "@/hooks/use-toast"
-import { useImageUpload } from "@/hooks/useImageUpload"
-import { useUpdateUser } from "@/hooks/useUpdateUser"
-import { useUserData } from "@/hooks/useUserData"
-import { cn, encryptPassword } from "@/lib/utils"
-import { profileFormSchema } from "@/lib/validations"
-import { useScreenSize } from "@/store/useScreenStore"
-import { useUserStore } from "@/store/useUserStore"
-import { User } from "@/types"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { format } from "date-fns"
-import { ChevronDown } from "lucide-react"
-import { ChangeEvent, useEffect, useRef } from "react"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
+} from "@/components/ui/popover";
+import { toast } from "@/hooks/use-toast";
+import { useImageUpload } from "@/hooks/useImageUpload";
+import { useUpdateUser } from "@/hooks/useUpdateUser";
+import { useUserData } from "@/hooks/useUserData";
+import { cn, encryptPassword } from "@/lib/utils";
+import { profileFormSchema } from "@/lib/validations";
+import { useScreenSize } from "@/store/useScreenStore";
+import { useUserStore } from "@/store/useUserStore";
+import { User } from "@/types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { format } from "date-fns";
+import { ChevronDown } from "lucide-react";
+import { ChangeEvent, useEffect, useRef } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 const getFormValues = (userData?: User) => ({
   name: userData?.name || "",
@@ -43,56 +43,56 @@ const getFormValues = (userData?: User) => ({
   city: userData?.city || "",
   postalCode: userData?.postalCode || "",
   country: userData?.country || "",
-})
+});
 
 const EditProfileForm = () => {
-  const { getUserId } = useUserStore()
-  const userId = getUserId()
-  const isLargeScreen = useScreenSize()
+  const { getUserId } = useUserStore();
+  const userId = getUserId();
+  const isLargeScreen = useScreenSize();
 
-  const { data: userData, refetch } = useUserData(userId)
-  const fileInputRef = useRef<HTMLInputElement>(null)
+  const { data: userData, refetch } = useUserData(userId);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const {
     selectedImage,
     imagePreview,
     handleImageSelect,
     convertToBase64,
     resetImage,
-  } = useImageUpload()
+  } = useImageUpload();
 
   const form = useForm<z.infer<typeof profileFormSchema>>({
     resolver: zodResolver(profileFormSchema),
     defaultValues: getFormValues(userData),
-  })
+  });
 
-  const { updateUser, isPending } = useUpdateUser(userData?.id)
+  const { updateUser, isPending } = useUpdateUser(userData?.id);
 
   useEffect(() => {
     if (userData) {
-      form.reset(getFormValues(userData))
+      form.reset(getFormValues(userData));
     }
-  }, [userData, form])
+  }, [userData, form]);
 
   const handleImageClick = () => {
-    fileInputRef.current?.click()
-  }
+    fileInputRef.current?.click();
+  };
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
+    const file = e.target.files?.[0];
     if (file) {
-      handleImageSelect(file)
+      handleImageSelect(file);
     }
-  }
+  };
 
   const onSubmit = async (values: z.infer<typeof profileFormSchema>) => {
     try {
-      let profilePicture = userData?.profilePicture
+      let profilePicture = userData?.profilePicture;
 
       if (selectedImage) {
-        profilePicture = await convertToBase64(selectedImage)
+        profilePicture = await convertToBase64(selectedImage);
       }
 
-      const { password, ...restValues } = values
+      const { password, ...restValues } = values;
 
       const updatedValues = {
         ...restValues,
@@ -105,32 +105,32 @@ const EditProfileForm = () => {
           : {
               password: userData.password,
             }),
-      }
+      };
 
-      await updateUser(updatedValues)
-      resetImage()
+      await updateUser(updatedValues);
+      resetImage();
 
       toast({
         title: "Success",
         description: "Profile updated successfully",
-      })
+      });
 
       setTimeout(() => {
-        refetch()
-      }, 1000)
+        refetch();
+      }, 1000);
     } catch (error) {
-      console.error("Form submission error:", error)
+      console.error("Form submission error:", error);
       toast({
         variant: "destructive",
         title: "Error",
         description: "Failed to update profile",
-      })
+      });
     }
-  }
+  };
 
-  const formLabelClasses = "text-base font-normal text-active-link"
+  const formLabelClasses = "text-base font-normal text-active-link";
   const inputClasses =
-    "border border-card-border rounded-[15px] h-[50px] py-4 px-5 text-[15px] font-normal text-active-link placeholder:text-[15px] placeholder:font-normal placeholder:text-soft-blue"
+    "border border-card-border rounded-[15px] h-[50px] py-4 px-5 text-[15px] font-normal text-active-link placeholder:text-[15px] placeholder:font-normal placeholder:text-soft-blue";
 
   return (
     <Form {...form}>
@@ -391,7 +391,7 @@ const EditProfileForm = () => {
         </div>
       </form>
     </Form>
-  )
-}
+  );
+};
 
-export default EditProfileForm
+export default EditProfileForm;

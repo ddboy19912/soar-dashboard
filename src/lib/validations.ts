@@ -1,4 +1,4 @@
-import { z } from "zod"
+import { z } from "zod";
 
 export const profileFormSchema = z.object({
   name: z.string().min(2, {
@@ -32,4 +32,4 @@ export const profileFormSchema = z.object({
   country: z.string().min(2, {
     message: "Country must be at least 2 characters.",
   }),
-})
+});

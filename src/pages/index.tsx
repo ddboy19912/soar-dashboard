@@ -1,12 +1,12 @@
-import Accounts from "./accounts"
-import CreditCards from "./creditCards"
-import Dashboard from "./dashboard"
-import Investments from "./investments"
-import Loans from "./loans"
-import MyPrivileges from "./myPrivileges"
-import Services from "./services"
-import Settings from "./settings"
-import Transactions from "./transactions"
+import Accounts from "./accounts";
+import CreditCards from "./creditCards";
+import Dashboard from "./dashboard";
+import Investments from "./investments";
+import Loans from "./loans";
+import MyPrivileges from "./myPrivileges";
+import Services from "./services";
+import Settings from "./settings";
+import Transactions from "./transactions";
 
 export {
   Accounts,
@@ -18,4 +18,4 @@ export {
   Services,
   Settings,
   Transactions,
-}
+};

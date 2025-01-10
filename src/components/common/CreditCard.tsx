@@ -1,13 +1,13 @@
-import { ChipIllustration } from "@/assets"
-import { formatCardNumber } from "@/lib/card"
+import { ChipIllustration } from "@/assets";
+import { formatCardNumber } from "@/lib/card";
 
 interface CreditCardProps {
-  balance: number
-  holderName: string
-  validThru: string
-  cardNumber: string
-  cardColor: "dark" | "light"
-  isLoading?: boolean
+  balance: number;
+  holderName: string;
+  validThru: string;
+  cardNumber: string;
+  cardColor: "dark" | "light";
+  isLoading?: boolean;
 }
 
 const CreditCard = ({
@@ -18,14 +18,14 @@ const CreditCard = ({
   cardColor = "dark",
   isLoading = true,
 }: CreditCardProps) => {
-  const cardColorClass = cardColor === "dark" ? "bg-card-gradient" : "bg-white"
+  const cardColorClass = cardColor === "dark" ? "bg-card-gradient" : "bg-white";
   const textColorClass =
-    cardColor === "dark" ? "text-white" : "text-accent-blue"
+    cardColor === "dark" ? "text-white" : "text-accent-blue";
   const fadeTextColorClass =
-    cardColor === "dark" ? "text-white/70" : "text-soft-blue"
+    cardColor === "dark" ? "text-white/70" : "text-soft-blue";
   const cardBorderClass =
-    cardColor === "dark" ? "border-transparent" : "border border-card-border"
-  const chipFilter = cardColor === "light" ? "invert" : ""
+    cardColor === "dark" ? "border-transparent" : "border border-card-border";
+  const chipFilter = cardColor === "light" ? "invert" : "";
 
   if (isLoading) {
     return (
@@ -34,7 +34,7 @@ const CreditCard = ({
       >
         <div className="absolute inset-0 translate-x-[-100%] animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent" />
       </div>
-    )
+    );
   }
 
   return (
@@ -93,7 +93,7 @@ const CreditCard = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CreditCard
+export default CreditCard;

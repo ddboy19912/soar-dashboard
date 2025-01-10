@@ -1,5 +1,5 @@
 export interface MonthlyBalance {
-  month: string
-  balance: number
-  growth: number
+  month: string;
+  balance: number;
+  growth: number;
 }

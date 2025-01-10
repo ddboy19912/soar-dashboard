@@ -1,12 +1,12 @@
-import { useState } from "react"
+import { useState } from "react";
 
 interface ProfileImageProps {
-  src?: string | null
-  alt?: string
-  className?: string
-  name?: string
-  isLoading?: boolean
-  size?: number
+  src?: string | null;
+  alt?: string;
+  className?: string;
+  name?: string;
+  isLoading?: boolean;
+  size?: number;
 }
 
 const ProfileImage = ({
@@ -17,15 +17,15 @@ const ProfileImage = ({
   isLoading = false,
   size = 60,
 }: ProfileImageProps) => {
-  const [imageError, setImageError] = useState(false)
+  const [imageError, setImageError] = useState(false);
 
   const getInitials = () => {
-    const names = name.split(" ")
+    const names = name.split(" ");
     if (names.length >= 2) {
-      return (names[0][0] + names[1][0]).toUpperCase()
+      return (names[0][0] + names[1][0]).toUpperCase();
     }
-    return (names[0]?.[0] || "U").toUpperCase()
-  }
+    return (names[0]?.[0] || "U").toUpperCase();
+  };
 
   // Skeleton Loading
   if (isLoading) {
@@ -39,7 +39,7 @@ const ProfileImage = ({
         `}
         style={{ width: size, height: size }}
       />
-    )
+    );
   }
 
   if (!src || imageError) {
@@ -59,7 +59,7 @@ const ProfileImage = ({
       >
         {getInitials()}
       </div>
-    )
+    );
   }
 
   return (
@@ -71,7 +71,7 @@ const ProfileImage = ({
       className={`bg-soft-blue rounded-full object-cover cursor-pointer ${className}`}
       style={{ width: size, height: size }}
     />
-  )
-}
+  );
+};
 
-export default ProfileImage
+export default ProfileImage;

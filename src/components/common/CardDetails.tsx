@@ -1,17 +1,17 @@
-import { useToast } from "@/hooks/use-toast"
-import { Card } from "@/types"
-import { Copy } from "lucide-react"
+import { useToast } from "@/hooks/use-toast";
+import { Card } from "@/types";
+import { Copy } from "lucide-react";
 
 const CardDetails = ({ card }: { card: Card }) => {
-  const { toast } = useToast()
+  const { toast } = useToast();
 
   const copyToClipboard = (text: string, field: string) => {
-    navigator.clipboard.writeText(text)
+    navigator.clipboard.writeText(text);
     toast({
       description: `${field} copied to clipboard`,
       duration: 2000,
-    })
-  }
+    });
+  };
 
   return (
     <div className="mt-4 space-y-4">
@@ -54,7 +54,7 @@ const CardDetails = ({ card }: { card: Card }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CardDetails
+export default CardDetails;

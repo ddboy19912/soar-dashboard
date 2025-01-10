@@ -1,13 +1,13 @@
-import CustomCard from "@/components/common/CustomCard"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import EditProfile from "./sections/EditProfile"
-import Preferences from "./sections/Preferences"
-import Security from "./sections/Security"
+import CustomCard from "@/components/common/CustomCard";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import EditProfile from "./sections/EditProfile";
+import Preferences from "./sections/Preferences";
+import Security from "./sections/Security";
 
 interface TabItem {
-  value: string
-  label: string
-  content: string | React.ReactNode
+  value: string;
+  label: string;
+  content: string | React.ReactNode;
 }
 
 const tabsData: TabItem[] = [
@@ -26,7 +26,7 @@ const tabsData: TabItem[] = [
     label: "Security",
     content: <Security />,
   },
-]
+];
 
 const Settings = () => {
   return (
@@ -61,7 +61,7 @@ const Settings = () => {
         </Tabs>
       </CustomCard>
     </div>
-  )
-}
+  );
+};
 
-export default Settings
+export default Settings;

@@ -1,9 +1,9 @@
-import { User } from "@/types"
-import axios from "axios"
+import { User } from "@/types";
+import axios from "axios";
 
 const api = axios.create({
   baseURL: "http://localhost:3001",
-})
+});
 
 export const apiService = {
   // User APIs
@@ -28,4 +28,4 @@ export const apiService = {
 
   // Monthly Balance APIs
   getMonthlyBalances: () => api.get("/monthlyBalances"),
-}
+};

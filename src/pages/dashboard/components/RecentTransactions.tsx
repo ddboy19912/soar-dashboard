@@ -1,13 +1,13 @@
-import CustomCard from "@/components/common/CustomCard"
-import Icon from "@/components/Icon"
-import { useTransactions } from "@/hooks/useTransactions"
-import { formatAmount, formatDate } from "@/lib/helpers"
-import { Transaction } from "@/types"
-import { TransactionMethod } from "@/types/transaction"
+import CustomCard from "@/components/common/CustomCard";
+import Icon from "@/components/Icon";
+import { useTransactions } from "@/hooks/useTransactions";
+import { formatAmount, formatDate } from "@/lib/helpers";
+import { Transaction } from "@/types";
+import { TransactionMethod } from "@/types/transaction";
 
 interface TransactionStyle {
-  icon: string
-  bgColor: string
+  icon: string;
+  bgColor: string;
 }
 
 const getTransactionStyle = (transaction: Transaction): TransactionStyle => {
@@ -24,16 +24,16 @@ const getTransactionStyle = (transaction: Transaction): TransactionStyle => {
       icon: "money",
       bgColor: "bg-primary-green",
     },
-  }
+  };
 
-  return styles[transaction.method]
-}
+  return styles[transaction.method];
+};
 
 const TransactionCard = ({ transaction }: { transaction: Transaction }) => {
-  const { icon, bgColor } = getTransactionStyle(transaction)
+  const { icon, bgColor } = getTransactionStyle(transaction);
 
   const amountClasses =
-    transaction.type === "credit" ? "text-positive-green" : "text-negative-red"
+    transaction.type === "credit" ? "text-positive-green" : "text-negative-red";
 
   return (
     <div className="flex items-center justify-between">
@@ -62,11 +62,11 @@ const TransactionCard = ({ transaction }: { transaction: Transaction }) => {
         </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const RecentTransactions = () => {
-  const { data: transactions } = useTransactions()
+  const { data: transactions } = useTransactions();
 
   return (
     <div>
@@ -82,7 +82,7 @@ const RecentTransactions = () => {
         </div>
       </CustomCard>
     </div>
-  )
-}
+  );
+};
 
-export default RecentTransactions
+export default RecentTransactions;

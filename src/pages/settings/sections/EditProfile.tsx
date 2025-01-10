@@ -1,4 +1,4 @@
-import EditProfileForm from "../components/EditProfileForm"
+import EditProfileForm from "../components/EditProfileForm";
 
 const EditProfile = () => {
   return (
@@ -7,7 +7,7 @@ const EditProfile = () => {
         <EditProfileForm />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default EditProfile
+export default EditProfile;

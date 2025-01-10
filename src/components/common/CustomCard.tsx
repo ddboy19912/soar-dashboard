@@ -1,9 +1,9 @@
-import { Card, CardContent } from "../ui/card"
+import { Card, CardContent } from "../ui/card";
 
 interface CustomCardProps {
-  children: React.ReactNode
-  containerClass?: string
-  contentClass?: string
+  children: React.ReactNode;
+  containerClass?: string;
+  contentClass?: string;
 }
 
 const CustomCard = ({
@@ -17,7 +17,7 @@ const CustomCard = ({
     >
       <CardContent className={contentClass}>{children}</CardContent>
     </Card>
-  )
-}
+  );
+};
 
-export default CustomCard
+export default CustomCard;

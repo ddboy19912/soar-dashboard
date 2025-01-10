@@ -1,10 +1,10 @@
-import CustomCard from "@/components/common/CustomCard"
-import { ChartConfig, ChartContainer } from "@/components/ui/chart"
-import { useExpenseCategories } from "@/hooks/useExpenseCategories"
-import { useCallback, useState } from "react"
-import { Cell, Pie, PieChart } from "recharts"
+import CustomCard from "@/components/common/CustomCard";
+import { ChartConfig, ChartContainer } from "@/components/ui/chart";
+import { useExpenseCategories } from "@/hooks/useExpenseCategories";
+import { useCallback, useState } from "react";
+import { Cell, Pie, PieChart } from "recharts";
 
-const COLORS = ["#2f3554", "#f4813f", "#4169e1", "#1c1c1c"]
+const COLORS = ["#2f3554", "#f4813f", "#4169e1", "#1c1c1c"];
 
 const chartConfig = {
   value: {
@@ -26,18 +26,18 @@ const chartConfig = {
     label: "Others",
     color: COLORS[3],
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 const ExpenseStatistics = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const onPieEnter = useCallback((_: any, index: number) => {
-    setActiveIndex(index)
-  }, [])
+    setActiveIndex(index);
+  }, []);
 
   const onPieLeave = useCallback(() => {
-    setActiveIndex(null)
-  }, [])
+    setActiveIndex(null);
+  }, []);
 
   const renderCustomizedLabel = useCallback(
     ({
@@ -50,11 +50,11 @@ const ExpenseStatistics = () => {
       name,
       index,
     }: any) => {
-      const RADIAN = Math.PI / 180
-      const radius = innerRadius + (outerRadius - innerRadius) * 0.6
-      const extraRadius = activeIndex === index ? 10 : 0
-      const x = cx + (radius + extraRadius) * Math.cos(-midAngle * RADIAN)
-      const y = cy + (radius + extraRadius) * Math.sin(-midAngle * RADIAN)
+      const RADIAN = Math.PI / 180;
+      const radius = innerRadius + (outerRadius - innerRadius) * 0.6;
+      const extraRadius = activeIndex === index ? 10 : 0;
+      const x = cx + (radius + extraRadius) * Math.cos(-midAngle * RADIAN);
+      const y = cy + (radius + extraRadius) * Math.sin(-midAngle * RADIAN);
 
       return (
         <g className="pointer-events-none">
@@ -83,12 +83,12 @@ const ExpenseStatistics = () => {
             {name}
           </text>
         </g>
-      )
+      );
     },
     [activeIndex]
-  )
+  );
 
-  const { data: expenseData } = useExpenseCategories()
+  const { data: expenseData } = useExpenseCategories();
 
   return (
     <div>
@@ -131,7 +131,7 @@ const ExpenseStatistics = () => {
         </ChartContainer>
       </CustomCard>
     </div>
-  )
-}
+  );
+};
 
-export default ExpenseStatistics
+export default ExpenseStatistics;

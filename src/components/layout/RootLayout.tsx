@@ -1,26 +1,26 @@
-import Navbar from "@/components/navigation/Navbar"
-import Sidebar from "@/components/navigation/Sidebar"
-import { useCallback, useState } from "react"
-import { Outlet, useLocation } from "react-router-dom"
-import { Toaster } from "../ui/toaster"
+import Navbar from "@/components/navigation/Navbar";
+import Sidebar from "@/components/navigation/Sidebar";
+import { useCallback, useState } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import { Toaster } from "../ui/toaster";
 
 const RootLayout = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const pathname = useLocation().pathname
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const pathname = useLocation().pathname;
 
-  const isSettingsPath = pathname === "/settings"
+  const isSettingsPath = pathname === "/settings";
 
   const closeSidebar = useCallback(() => {
-    setIsSidebarOpen(false)
-  }, [])
+    setIsSidebarOpen(false);
+  }, []);
 
   const toggleSidebar = useCallback(() => {
-    setIsSidebarOpen(!isSidebarOpen)
-  }, [isSidebarOpen])
+    setIsSidebarOpen(!isSidebarOpen);
+  }, [isSidebarOpen]);
 
   const mobilePageBackground = isSettingsPath
     ? "bg-input-background"
-    : "bg-white"
+    : "bg-white";
 
   return (
     <div className="min-h-screen bg-gray-50 flex">
@@ -37,7 +37,7 @@ const RootLayout = () => {
         </main>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RootLayout
+export default RootLayout;

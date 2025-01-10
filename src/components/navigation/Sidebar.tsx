@@ -1,10 +1,10 @@
-import { DashboardLogo } from "@/assets"
-import { NavLink } from "react-router-dom"
-import Icon from "../Icon"
+import { DashboardLogo } from "@/assets";
+import { NavLink } from "react-router-dom";
+import Icon from "../Icon";
 
 interface SidebarProps {
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 const sidebarLinks = [
@@ -53,7 +53,7 @@ const sidebarLinks = [
     path: "/settings",
     iconName: "settings",
   },
-]
+];
 
 const navLinkClasses = ({ isActive }: { isActive: boolean }) => `
   flex items-center py-3 lg:py-[17.5px] gap-[26px]
@@ -70,7 +70,7 @@ const navLinkClasses = ({ isActive }: { isActive: boolean }) => `
   before:duration-200
   before:rounded-r-[10px]
   ${isActive ? "before:opacity-100" : "before:opacity-0"}
-`
+`;
 
 const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   return (
@@ -109,7 +109,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         onClick={onClose}
       />
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
