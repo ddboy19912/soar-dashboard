@@ -98,7 +98,7 @@ VITE_API_URL=https://soar-dashboard-backend.vercel.app
 
 The application is deployed on Vercel:
 
-- **Production:** [https://soar-dashboard.vercel.app](https://soar-dashboard.vercel.app)
+- **Production:** [https://soar-dashboard-nu.vercel.app](https://soar-dashboard-nu.vercel.app)
 - **Preview:** Automatically generated for each Pull Request
 
 ## Development Guidelines
