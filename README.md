@@ -109,7 +109,7 @@ NODE_ENV=development
 
 ### Frontend
 - Platform: Vercel
-- Production URL: [https://soar-dashboard.vercel.app](https://soar-dashboard.vercel.app)
+- Production URL: [https://soar-dashboard-nu.vercel.app](https://soar-dashboard-nu.vercel.app)
 
 ### Backend
 - Platform: Vercel
